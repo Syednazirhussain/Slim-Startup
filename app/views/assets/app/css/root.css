@@ -1,0 +1,27 @@
+/*-----------------------------------------------------------------------------------
+
+	DIDX New Template
+	Author: Salman Khan
+	Author URI: http://www.dezignburg.com
+
+-----------------------------------------------------------------------------------*/
+
+/* Montserrat */
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+/* Open Sans */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,800,300);
+
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+@import url('bootstrap.css');
+@import url('style.css');
+@import url('responsive.css');
+@import url('shortcuts.css');
+
+@import url('plugin/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css');
+@import url('plugin/bootstrap-select/bootstrap-select.css');
+@import url('plugin/bootstrap-toggle/bootstrap-toggle.min.css');
+@import url('plugin/datatables/datatables.css');
+@import url('plugin/date-range-picker/daterangepicker-bs3.css');
+@import url('plugin/bootstrap-wysihtml5/bootstrap-wysihtml5.css');
+
+

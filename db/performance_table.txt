@@ -1,0 +1,13 @@
+
+performance table created to log page response time.s
+
+CREATE TABLE performance (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+request_type VARCHAR(10),
+request_path VARCHAR(40) NOT NULL,
+request_time DOUBLE(16,14) NOT NULL,
+created_at TIMESTAMP NOT NULL
+)
+
+
+ALTER TABLE performance MODIFY request_path VARCHAR(250);
