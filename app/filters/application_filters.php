@@ -2,6 +2,35 @@
 
 
 
+function Check_Feild_NotEmpty($params){
+	$errors = array();
+	foreach ($params as $key => $value){
+		if ($params[$key] == null && $params[$key] == "" && $value == null && $value == ""){
+			$errors[$key] = $key." must be entered";
+		}
+	}
+	if (empty($errors)){
+		return array("status" => "ok");
+	}else{
+		return $errors;
+	}
+
+}
+
+function Check_Valid_Email($email){
+	$errors = array();
+	$regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/';
+	if (!preg_match_all($regex, $email)) {
+		$errors['Email'] = $email." not valid email";
+	}
+	if (empty($errors)){
+		return array("status" => "ok");
+	}else{
+		return $errors;
+	}
+}
+
+
 
 
 
@@ -125,23 +154,7 @@ function GeneralMsg($Condition,$Error,$Successmsg,$General)
 {
 	$html='';
 return ($Condition)? $html.=$Successmsg:'';
-// $html.= '<table class="data" width="100%" cellpadding="0" cellspacing="0">
- //                            <thead>
- //                                <tr>
- //                                    <th width="385" colspan="2"><div align="center">'.$Message.'</div></th>
- //                                </tr>
- //                            </thead>
- //                            </table>
- //                        }
- //                        //     <tbody>
- //                        //         <tr class="grey">
- //                        //             <td><div align="center" id="res_div">'.$GeneralInfo.'<br />
- //                        //             '.$Error.'</div></td>  
- //                        //         </tr>
- //                        //         <tr><td>'.$General.'</td></tr>
- //                        //     </tbody>
- //                        // </table>';
- //                        return $html;
+
 }
 
 function getSearchCountriesList($SortBy=1)

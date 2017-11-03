@@ -41,7 +41,7 @@ class authentication extends pdocrudhandler{
                 $res = $this->update('log', array('lastlogin' => date('Y-m-d h:i:s'),'sessionid' => $encode,'IpAddress' => $ip), 'where l_id = ?', array($userid));
                 return $res;
             }else{
-                return null;
+                return array("status" => "username or password not found");
             }
     }
 
