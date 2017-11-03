@@ -2,24 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo $root; ?></title>
+
     <script src="../assets/app/js/jquery-2.1.4.min.js"></script>
     <script src="../assets/app/js/myscript.js"></script>
 </head>
 <body>
 <div id="website_info" data-website-url="<?php echo $GLOBALS['website_url']?>"></div>
-<form id="login">
-    <p>User Name :<br>
-    <input type="text" id="username" name="username" required>
-    <span id="email"></span>
+<form id="answer">
+    <p>Question ID :<br>
+        <input type="number" id="qid" name="qid" required>
     </p>
     <p>
-    Password :<br>
-    <input type="password" id="password" name="password" required>
-    <span id="pass"></span>
+        Answer ID :<br>
+        <input type="number" id="aid" name="aid"  required>
     </p>
     <br><br>
-    <input id="submit" type="button" value="Submit">
+    <input id="check" type="button" value="Submit">
 </form>
 <p id="status"></p>
 

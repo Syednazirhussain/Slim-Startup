@@ -14,7 +14,7 @@ function MyCoreClassesAutoload($className){
 		require_once(ROOT . DS . 'app' . DS .'controllers' . DS . $className . '.php');
 	} else {
 		//echo "controller != $className";
-		//require_once (ROOT . DS . 'core' . DS .'model' . DS . $className.'.class.php');
+		require_once (ROOT . DS . 'core' . DS .'classes' . DS . $className.'.class.php');
 	}
 
 

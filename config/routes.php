@@ -8,7 +8,8 @@ class MainRouter
         $app->get('/', HomeController::class . ':landing')->setName('root');
         $app->get('/home', HomeController::class . ':home')->setName('home');
         $app->post('/login',LoginController::class.':login_action');
-            
+        $app->get('/dashboard',LoginController::class.':dashboard');
+        $app->post('/postdata',LoginController::class.':postdata');
             
         }
 

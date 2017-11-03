@@ -1,0 +1,34 @@
+                $.post('/login',jsObj,function (response) {
+                      var data = JSON.parse(response);
+                        var html = '';
+                        html += "<ul>";
+                      if (data['error']){
+                          alert(data['error']['invaid_input']+" first");
+                          if (data['error']['invaid_input'] != null){
+                              $('#status').html(html);
+                              for(var i = 0 ; i < data['error']['invaid_input'].length ; i++) {
+                                  html += '<li>'+data['error']['invaid_input'][i]+'</li>';
+                              }
+                          }
+                          alert(data['error']['missing_feild']+" second");
+                          if (data['error']['missing_feild'] != ""){
+                              for(var i = 0 ; i < data['error']['missing_feild'].length ; i++) {
+                                  html += '<li>'+data['error']['missing_feild'][i]+'</li>';
+                              }
+                          }
+                          html += "</ul>";
+                          $('#status').html(html);
+                      }else {
+                          $(':input', '#login')
+                                  .not(':button, :submit, :reset, :hidden')
+                                  .val('')
+                                  .removeAttr('checked')
+                                  .removeAttr('selected');
+                          $("#addUser").trigger('reset');
+                          document.getElementById("login").reset();
+                          $('#status').css( "color", "green" );
+                          $('#status').text('Login Successfull..');
+                          console.log(data['result']['username']+" "+data['result']['password'])
+                      }
+;
+                });

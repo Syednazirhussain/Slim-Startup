@@ -299,7 +299,7 @@ class Yii2 extends Framework implements ActiveRecord, PartedModule
      *     'posts' => PostsFixture::className(),
      *     'user' => [
      *         'class' => UserFixture::className(),
-     *         'dataFile' => '@tests/_data/models/user.php',
+     *         'dataFile' => '@tests/_data/models/authentication.php',
      *      ],
      * ]);
      * ```
@@ -313,7 +313,7 @@ class Yii2 extends Framework implements ActiveRecord, PartedModule
      *     return [
      *         'user' => [
      *             'class' => UserFixture::className(),
-     *             'dataFile' => codecept_data_dir() . 'user.php'
+     *             'dataFile' => codecept_data_dir() . 'authentication.php'
      *         ]
      *     ];
      * }

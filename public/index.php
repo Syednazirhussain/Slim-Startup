@@ -4,7 +4,14 @@ ini_set( 'session.use_trans_sid', FALSE );
 ini_set( 'session.cookie_lifetime', 1200 ); // 1200 sec or 20 mintss
 
 // Set the cookie name
-session_name('Bootstap');
+//session_name('Bootstap');
+
+define('SECRET_KEY', "pakistan123!@#");
+
+//$handler = new \ByJG\Session\JwtSession('test',SECRET_KEY);
+//$handler->replaceSessionHandler(true);
+
+
 
 $limit = 0;
 $path  = "/";
@@ -17,7 +24,7 @@ $https = isset($secure) ? $secure : isset($_SERVER['HTTPS']);
 // Set session cookie options
 session_set_cookie_params($limit, $path, $domain, $https, true);
 
-session_start();
+//session_start();
 
 define('isIncludedTrue', 1);
 
