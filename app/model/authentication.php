@@ -38,6 +38,39 @@ class authentication extends pdocrudhandler{
         return $_SESSION;
     }
 
+    public function create_token($params){
+        $password = md5($params['password']);
+        $result = $this->select('log', array("*"), "where username = ? and password = ? ", array($params['username'], $password) );
+        if ($result['status'] == 'success' && $result['rowsAffected'] == 1) {
+            $userid = $result['result'][0]->l_id;
+            $username = $result['result'][0]->username;
+            $tokenId    = base64_encode(mcrypt_create_iv(32));
+            $issuedAt   = time();
+            $notBefore  = $issuedAt + 10;
+            $expire     = $notBefore + 60;
+            $serverName = $_SERVER['SERVER_NAME'];
+            $data = [
+                'IssueAt'  => $issuedAt,
+                'TokenId'  => $tokenId,
+                'IssueAtHost'  => $serverName,
+                'NotBefore'  => $notBefore,
+                'ExpireAt'  => $expire,
+                'data' => [
+                    'userId'   => $userid,
+                    'userName' => $username
+                ]
+            ];
+            $secretKey = 'syednazir';
+            $jwt = JWT::encode(
+                $data,
+                $secretKey
+            );
+            $unencodedArray = ['jwt' => $jwt];
+            return $unencodedArray;
+        }else{
+            return array("status" => "username or password not found");
+        }
+    }
 
     public function login($params)
     {

@@ -13,10 +13,20 @@ class LoginController extends ApplicationController{
         $this->error = array_merge($status1,$status2);
 
         if (count($this->error) == 1 && $this->error['status'] == "ok"){
+
+
+              // @todo This is Session baseed authentication
             $auth = new authentication();
             print_r($auth->login($_POST));
+
+            // @todo This is Token based authentication
+//            $auth = new authentication();
+//            echo json_encode($auth->create_token($_POST));
+
+
         }else{
-            return print_r($this->error);
+            echo json_encode($this->error);
+//            print_r($this->error);
         }
 
 
@@ -37,7 +47,23 @@ class LoginController extends ApplicationController{
         return $this->view->render($response, 'start.dashboard',$data);
     }
 
+    public function verifyToken($request, $response, $args){
 
+        if ($request->isGet()) {
+            $authHeader = $request->getHeader('authorization');
+            if ($authHeader) {
+                    try {
+                        $secretKey = 'syednazir';
+                        $token = JWT::decode($authHeader[0], $secretKey);
+                        print_r($token);
+                    } catch (Exception $e) {
+                        return json_encode(array('error' => $e->getMessage()));
+                    }
+
+            }
+        }
+
+    }
 
 
     public function postdata($request, $response, $args){

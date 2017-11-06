@@ -6,6 +6,9 @@ class MainRouter
 
         $authenticateUser = function ($request, $response, $next) {
 
+
+
+
             $uri = $request->getUri()->withPath($this->router->pathFor('root'));
             $status = 0;
             session_regenerate_id();
@@ -37,10 +40,10 @@ class MainRouter
         $app->get('/home', HomeController::class . ':home')->setName('home');
         $app->post('/login',LoginController::class.':login_action');
         $app->get('/logout',LoginController::class.':logout');
-
         $app->get('/dashboard',LoginController::class.':dashboard')->add($authenticateUser);
-        
         $app->post('/postdata',LoginController::class.':postdata');
+        
+        $app->get('/resource',LoginController::class.':verifyToken');
             
         }
 
