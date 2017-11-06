@@ -38,6 +38,7 @@ class authentication extends pdocrudhandler{
         return $_SESSION;
     }
 
+    // @TODO this function is allocated for token based authentication in an API
     public function create_token($params){
         $password = md5($params['password']);
         $result = $this->select('log', array("*"), "where username = ? and password = ? ", array($params['username'], $password) );
@@ -60,6 +61,7 @@ class authentication extends pdocrudhandler{
                     'userName' => $username
                 ]
             ];
+            // @TODO this secret ki come from login form and store in some where as you want
             $secretKey = 'syednazir';
             $jwt = JWT::encode(
                 $data,

@@ -54,20 +54,21 @@ $(document).ready(function(){
             // });
             */
 
-
-/*            if (data['status'] === 'success'){
-                alert(response);
-                window.location = websiteUrl+"/dashboard";
-            }else{
-                alert(response);
-            }
-            token = response;
-            document.cookie = token;
-            alert(token);
-            if (token != null){
-                window.location = websiteUrl+"/dashboard";
-            }
-            alert(token+" website url "+websiteUrl);*/
+            /*
+            // if (data['status'] === 'success'){
+            //     alert(response);
+            //     window.location = websiteUrl+"/dashboard";
+            // }else{
+            //     alert(response);
+            // }
+            // token = response;
+            // document.cookie = token;
+            // alert(token);
+            // if (token != null){
+            //     window.location = websiteUrl+"/dashboard";
+            // }
+            // alert(token+" website url "+websiteUrl);
+            */
         });
     });
 
