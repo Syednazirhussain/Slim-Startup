@@ -8,31 +8,22 @@ class MainRouter
 
             $uri = $request->getUri()->withPath($this->router->pathFor('root'));
             $status = 0;
-
             session_regenerate_id();
             $_SESSION['SESSIONID'] = session_id();
-
             $session = array();
-            
             $_pdo = new pdocrudhandler();
-
             $result = $_pdo->select('log',array('*'));
-
             $session = authentication::Session();
-
-
-
-//            echo array_key_exists($result['result'][0]->sessionid,$session);die();
-
             for($i = 0 ; $i < count($result['result']) ; $i++){
                 if ( array_key_exists($result['result'][$i]->sessionid,$session) ){
                     if( $result['result'][$i]->IpAddress == $_SERVER['REMOTE_ADDR'] && $result['result'][$i]->User_AGENT == $_SERVER['HTTP_USER_AGENT'] ){
                         $status = 1;
                     }else{
-                        $status = 1;
+                        $status = 0;
                     }
                 }
             }
+
             if ($status){
                 return $next($request, $response);
             }else{
