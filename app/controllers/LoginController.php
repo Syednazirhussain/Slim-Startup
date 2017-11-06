@@ -14,18 +14,31 @@ class LoginController extends ApplicationController{
 
         if (count($this->error) == 1 && $this->error['status'] == "ok"){
             $auth = new authentication();
-            print_r($auth->login($_POST));die();
+            print_r($auth->login($_POST));
         }else{
-            return $this->error;
+            return print_r($this->error);
         }
 
 
 
     }
 
-    public function dashboard($request, $response, $args){
-        return $this->view->render($response, 'start.profile');
+    public function logout($request, $response, $args){
+        $auth = new authentication();
+        if ($auth->logout()){
+            return $response->withRedirect("/home");
+        }
     }
+
+    public function dashboard($request, $response, $args){
+        $auth = new authentication();
+        $result = $auth->checklogin();
+        $data = array_merge(authentication::Session(),$result);
+        return $this->view->render($response, 'start.dashboard',$data);
+    }
+
+
+
 
     public function postdata($request, $response, $args){
         $token = jwt::decode($_POST['token'], 'secret_server_key');
@@ -34,3 +47,5 @@ class LoginController extends ApplicationController{
 
 
 }
+
+?>

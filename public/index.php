@@ -1,17 +1,10 @@
 <?php
+
 ini_set( 'session.use_only_cookies', TRUE );                
 ini_set( 'session.use_trans_sid', FALSE );
 ini_set( 'session.cookie_lifetime', 1200 ); // 1200 sec or 20 mintss
 
-// Set the cookie name
-//session_name('Bootstap');
-
-define('SECRET_KEY', "pakistan123!@#");
-
-//$handler = new \ByJG\Session\JwtSession('test',SECRET_KEY);
-//$handler->replaceSessionHandler(true);
-
-
+session_start();
 
 $limit = 0;
 $path  = "/";
@@ -110,3 +103,5 @@ $container['LoginController'] = function($c) {
 $MainRouter = new MainRouter();
 $MainRouter->configure($app);
 $app->run();
+
+?>

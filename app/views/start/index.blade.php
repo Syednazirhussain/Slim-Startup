@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo $root; ?></title>
+    <title>{{$root}}</title>
     <script src="../assets/app/js/jquery-2.1.4.min.js"></script>
     <script src="../assets/app/js/myscript.js"></script>
 </head>

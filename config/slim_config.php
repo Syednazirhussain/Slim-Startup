@@ -4,6 +4,8 @@
 $slimConfig = [
     'settings' => [
         'displayErrorDetails' => true, // set to false in production
+        'determineRouteBeforeAppMiddleware' => true,
+        'addContentLengthHeader' => false,
 
         // Renderer settings
         'renderer'            => [

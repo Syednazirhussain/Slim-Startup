@@ -7,33 +7,21 @@
 class HomeController extends ApplicationController{
 
     public function landing($request, $response, $args) {
+
+        
+        // @todo to generate random string
+        //echo md5(uniqid(mt_rand(),true));die();
+
+        // @todo Prevent Session Hijacking Code Example
+        //  session_regenerate_id();
+
+        // @todo Validate form post and get params
+        // strip_tags();
+
         return $response->withRedirect("/home");
     }
 
     public function home($request, $response, $args) {
-/*        // using model classes
-//        $_pdo = new pdocrudhandler();
-//        $result = $_pdo->select('log',array('username'),'where l_id = ?',array(1));
-//        echo "<pre>";
-//        $json = json_encode($result);
-//        echo $json;die();
-
-//        print_r($GLOBALS['config']['mysql']);die();
-
-        // using route path filter
-//        echo url_for("");die();
-
-//        $check = checkToken($_GET['token'], $_GET['data']);
-//        if ($check !== false){
-//            echo json_encode(array("secureData" => "Oo"));
-//        }
-//        die();
-
-
-//        print_r($_GET);die();
-//        $search = $_GET['search'] ;
-//        echo 'Search results for '.$search;
-//        echo "working";*/
         $message['root'] = "Bootstrap";
         return $this->view->render($response, 'start.index',$message);
     }

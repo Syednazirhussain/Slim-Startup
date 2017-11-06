@@ -1,10 +1,15 @@
 <?php
+use \Psr\Http\Message\ServerRequestInterface as Request;
+use \Psr\Http\Message\ResponseInterface as Response;
 
 class authentication extends pdocrudhandler{
+    
+   
 
     public function __construct(){
         $this->_pdo = $this->connect();
-        session_start();
+        //session_start();
+
     }
     
     private function RandomString($length) {
@@ -20,36 +25,43 @@ class authentication extends pdocrudhandler{
         $result = $this->select('log',array('sessionid'));
         $key = $result['result'][0]->sessionid;
         if ( isset( $_SESSION[$key] ) ) {
-            unset( $_SESSION[$key] );
+            $_SESSION = array();
+            session_destroy();
             return true;
+//            header('Location:'.$GLOBALS['website_url'].'/');
         }else{
             return false;
         }
     }
 
+    public static function Session(){
+        return $_SESSION;
+    }
+
+
     public function login($params)
     {
+        $_SESSION = array();
         $password = md5($params['password']);
             $result = $this->select('log', array("*"), "where username = ? and password = ? ", array($params['username'], $password) );
             if ($result['status'] == 'success' && $result['rowsAffected'] == 1) {
+                $user_agent =  $_SERVER['HTTP_USER_AGENT'];
                 $userid = $result['result'][0]->l_id;
-                //$_SESSION['login'] = true;
-                //$_SESSION["userid"] = $userid;
                 $encode  = $this->RandomString(10);
                 $ip = $_SERVER['REMOTE_ADDR'];
                 $_SESSION[$encode] = $userid;
-                $res = $this->update('log', array('lastlogin' => date('Y-m-d h:i:s'),'sessionid' => $encode,'IpAddress' => $ip), 'where l_id = ?', array($userid));
-                return $res;
+                $res = $this->update('log', array('lastlogin' => date('Y-m-d h:i:s'),'User_AGENT' => $user_agent,'sessionid' => $encode,'IpAddress' => $ip), 'where l_id = ?', array($userid));
+                return json_encode($res);
             }else{
                 return array("status" => "username or password not found");
             }
     }
 
     public function checklogin(){
-        //$this->softwaresecuritychk();
-        $result = $this->select('log',array('sessionid'));
+        $result = $this->select('log',array('*'));
         $key = $result['result'][0]->sessionid;
         if ( isset( $_SESSION[$key] ) ) {
+            return array_merge($_SESSION,$result);
             // @TODO Add some extra functionality when user login
             //echo $result['result'][0]->sessionid . "<br><pre>";
             //print_r($result);
@@ -57,7 +69,8 @@ class authentication extends pdocrudhandler{
             //die();
         }else{
             //echo "Not working";die();
-            header("location:index.php");
+//            header("location : ");
+            
         }
     }
     

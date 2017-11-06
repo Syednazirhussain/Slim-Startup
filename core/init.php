@@ -12,6 +12,7 @@ function MyCoreClassesAutoload($className){
 	if (strpos($className, 'Controller') !== false) {
 		//echo "controller == $className";
 		require_once(ROOT . DS . 'app' . DS .'controllers' . DS . $className . '.php');
+	
 	} else {
 		//echo "controller != $className";
 		require_once (ROOT . DS . 'core' . DS .'classes' . DS . $className.'.class.php');

@@ -2,7 +2,8 @@ $(document).ready(function(){
     var websiteUrl =  $( "#website_info" ).data( "website-url" );
     var token;
     $('#submit').click(function () {
-  
+
+        var html = '';
         var jsObj = {};
         var data = $('#login').serializeArray();
         $.each(data,function(index,feild){
@@ -10,12 +11,19 @@ $(document).ready(function(){
             console.log(feild.name+" --> "+feild.value);
         });
         $.post('/login',jsObj,function (response) {
-            token = response;
-            document.cookie = token;
-            alert(token);
-            if (token != null){
+            var data = JSON.parse(response);
+            if (data['status'] === 'success'){
+                alert(response);
                 window.location = websiteUrl+"/dashboard";
+            }else{
+                console.log(response);
             }
+            // token = response;
+            // document.cookie = token;
+            // alert(token);
+            // if (token != null){
+            //     window.location = websiteUrl+"/dashboard";
+            // }
             // alert(token+" website url "+websiteUrl);
         });
     });
