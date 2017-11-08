@@ -5,15 +5,13 @@ class MainRouter
     public function configure($app){
 
         $authenticateUser = function ($request, $response, $next) {
-
-
-
-
+            
             $uri = $request->getUri()->withPath($this->router->pathFor('root'));
             $status = 0;
             session_regenerate_id();
             $_SESSION['SESSIONID'] = session_id();
             $session = array();
+
             $_pdo = new pdocrudhandler();
             $result = $_pdo->select('log',array('*'));
             $session = authentication::Session();
@@ -44,7 +42,7 @@ class MainRouter
         $app->post('/postdata',LoginController::class.':postdata');
 
         // @TODO this route is reserved for verification of token
-        $app->get('/resource',LoginController::class.':verifyToken');
+        //$app->get('/resource',LoginController::class.':verifyToken');
             
         }
 

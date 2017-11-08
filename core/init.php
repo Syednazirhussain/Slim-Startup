@@ -1,5 +1,7 @@
 <?php
+
 // define isIncludedTrue variable for files should not run stand alone
+
 if(!defined('isIncludedTrue')) {
     die('Sorry, Direct access not permitted');
 }

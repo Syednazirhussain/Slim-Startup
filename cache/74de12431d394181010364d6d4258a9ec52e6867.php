@@ -7,6 +7,8 @@
     <script src="../assets/app/js/myscript.js"></script>
 </head>
 <body>
+
+
 <h1>Login As <?php echo e($result[0]->username); ?></h1>
 <ul>
     <li>COOKIES SESSIONID : <?php echo e($SESSIONID); ?></li>

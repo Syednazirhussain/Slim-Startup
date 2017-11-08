@@ -9,12 +9,11 @@ $(document).ready(function(){
         var data = $('#login').serializeArray();
         $.each(data,function(index,feild){
             jsObj[feild.name] = feild.value;
-            console.log(feild.name+" --> "+feild.value);
+            console.log(feild.name+" -- "+feild.value);
         });
         $.post('/login',jsObj,function (response) {
-
             console.log(response);
-
+            
             // @todo This is Session Based Authentication Code
 
             var data = JSON.parse(response);
@@ -35,9 +34,11 @@ $(document).ready(function(){
                 });
             }
 
+
             // @TODO This is Token Based Authentication Code
             /*
             // var data = JSON.parse(response);
+            // alert(data['jwt']);
             // $.ajax({
             //     url: '/resource',
             //     beforeSend: function(request){

@@ -44,7 +44,7 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 
-use \app\controllers;
+
 
 
 
@@ -71,10 +71,6 @@ $container['view'] = function ($container) {
 // 404 page added
 $container['notFoundHandler'] = function ($c) {
     return function ($request, $response) use ($c) {
-//        return $c['response']
-//            ->withStatus(404)
-//            ->withHeader('Content-Type', 'text/html')
-//            ->write('Page not found');
         return $c['view']->render($response, 'error_pages/404')->withStatus(404);
     };
 };
@@ -83,8 +79,6 @@ $container['notFoundHandler'] = function ($c) {
 $container['HomeController'] = function($c) {
     // require(ROOT . DS . 'app/controllers/HomeController.php');
     $view = $c->get("view"); // retrieve the 'view' from the container
-    #$flash = $c->get("flash");
-    #return new HomeController($view,$flash);
     return new HomeController($view);
 };
 
@@ -92,7 +86,6 @@ $container['HomeController'] = function($c) {
 $container['LoginController'] = function($c) {
     // require(ROOT . DS . 'app/controllers/LoginController.php');
     $view = $c->get("view"); // retrieve the 'view' from the container
-    #$flash = $c->get("flash");
     return new LoginController($view);
 };
 

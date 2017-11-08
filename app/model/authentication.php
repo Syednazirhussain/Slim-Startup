@@ -67,6 +67,7 @@ class authentication extends pdocrudhandler{
                 $data,
                 $secretKey
             );
+
             $unencodedArray = ['jwt' => $jwt];
             return $unencodedArray;
         }else{
@@ -86,7 +87,7 @@ class authentication extends pdocrudhandler{
                 $ip = $_SERVER['REMOTE_ADDR'];
                 $_SESSION[$encode] = $userid;
                 $res = $this->update('log', array('lastlogin' => date('Y-m-d h:i:s'),'User_AGENT' => $user_agent,'sessionid' => $encode,'IpAddress' => $ip), 'where l_id = ?', array($userid));
-                return json_encode($res);
+                return $res;
             }else{
                 return array("status" => "username or password not found");
             }
