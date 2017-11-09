@@ -36,24 +36,24 @@ $(document).ready(function(){
 
 
             // @TODO This is Token Based Authentication Code
-            /*
-            // var data = JSON.parse(response);
-            // alert(data['jwt']);
-            // $.ajax({
-            //     url: '/resource',
-            //     beforeSend: function(request){
-            //         request.setRequestHeader('Authorization',data['jwt']);
-            //     },
-            //     type: 'GET',
-            //     success: function(data) {
-            //         alert(data);
-            //         // Decode and show the returned data nicely.
-            //     },
-            //     error: function() {
-            //         alert('error');
-            //     }
-            // });
-            */
+
+/*            var data = JSON.parse(response);
+            alert(data['jwt']);
+            $.ajax({
+                url: '/resource',
+                beforeSend: function(request){
+                    request.setRequestHeader('Authorization',data['jwt']);
+                },
+                type: 'GET',
+                success: function(data) {
+                    alert(data);
+                    // Decode and show the returned data nicely.
+                },
+                error: function() {
+                    alert('error');
+                }
+            });*/
+
 
             /*
             // if (data['status'] === 'success'){

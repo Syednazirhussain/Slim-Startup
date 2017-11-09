@@ -20,8 +20,8 @@ class LoginController extends ApplicationController{
             echo json_encode($auth->login($_POST));
 
             // @todo This is Token based authentication
-//            $auth = new authentication();
-//            echo json_encode($auth->create_token($_POST));
+/*            $auth = new authentication();
+            echo json_encode($auth->create_token($_POST));*/
 
         }else{
             echo json_encode($this->error);

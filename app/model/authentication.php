@@ -63,13 +63,10 @@ class authentication extends pdocrudhandler{
             ];
             // @TODO this secret ki come from login form and store in some where as you want
             $secretKey = 'syednazir';
-            $jwt = JWT::encode(
-                $data,
-                $secretKey
-            );
-
+            $jwt = JWT::encode($data, $secretKey);
             $unencodedArray = ['jwt' => $jwt];
             return $unencodedArray;
+
         }else{
             return array("status" => "username or password not found");
         }
