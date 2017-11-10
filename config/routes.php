@@ -53,7 +53,15 @@ class MainRouter
         $app->get('/home', HomeController::class . ':home')->setName('home');
         $app->post('/login',LoginController::class.':login_action');
         $app->get('/logout',LoginController::class.':logout');
-        $app->get('/dashboard',LoginController::class.':dashboard')->add($authenticateUser);
+
+
+        $app->get('/dashboard',HomeController::class.':dashboard')->add($authenticateUser);
+        $app->post('/create/course',HomeController::class.':CreateCourse')->add($authenticateUser);
+        $app->post('/create/questions',HomeController::class.':CreateQuestions')->add($authenticateUser);
+        $app->post('/add/questions',HomeController::class.':AddQuestions')->add($authenticateUser);
+        $app->post('/course/questions',HomeController::class.':GetAllQuestionByCourseId')->add($authenticateUser);
+        $app->post('/add/answers',HomeController::class.':AddAnswerToQuestion')->add($authenticateUser);
+
 
         // @TODO this route is reserverd for API Calls
         $app->get('/courses',UserApiController::class.':GetAllCourse');

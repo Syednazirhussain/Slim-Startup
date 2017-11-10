@@ -63,14 +63,7 @@ class LoginController extends ApplicationController{
         }
 
     }
-
-    public function dashboard($request, $response, $args){
-        $auth = new authentication();
-        $result = $auth->checklogin();
-        $data = array_merge(authentication::Session(),$result);
-        return $this->view->render($response, 'start.dashboard',$data);
-    }
-
+    
     public function verifyToken($request, $response, $args){
 
 
@@ -88,7 +81,6 @@ class LoginController extends ApplicationController{
         }
 
     }
-
 
     public function postdata($request, $response, $args){
         $token = jwt::decode($_POST['token'], 'secret_server_key');
