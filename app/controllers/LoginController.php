@@ -3,6 +3,8 @@
  use \Psr\Http\Message\ServerRequestInterface as Request;
  use \Psr\Http\Message\ResponseInterface as Response;
 
+// Implode array to combined string / Explode combined string to array
+
 class LoginController extends ApplicationController{
 
 
@@ -12,42 +14,54 @@ class LoginController extends ApplicationController{
         // @TODO this is form api login
         $_POST = $request->getParams();
 
-
         $status1 = Check_Feild_NotEmpty($_POST);
 
         $status2 = Check_Valid_Email($_POST['username']);
 
         $this->error = array_merge($status1,$status2);
 
+        $contentType =  $request->getContentType();
+
         if (count($this->error) == 1 && $this->error['status'] == "ok"){
 
-
-            // @todo This is Session baseed authentication
-/*            $auth = new authentication();
-            echo json_encode($auth->login($_POST));*/
-
-            // @todo This is Token based authentication
-            $auth = new authentication();
-            echo json_encode($auth->create_token($_POST));
+            if ($contentType == "application/json"){
+                // @todo This is Token based authentication
+                $auth = new authentication();
+                echo json_encode($auth->create_token($_POST));
+            }else{
+                // @todo This is Session baseed authentication
+                $auth = new authentication();
+                echo json_encode($auth->login($_POST));
+            }
 
         }else{
+
             echo json_encode($this->error);
+
         }
         
     }
 
     public function logout($request, $response, $args){
 
-        // @TODO this is session based logout
-/*        $auth = new authentication();
-        if ($auth->logout()){
-            return $response->withRedirect("/home");
-        }*/
+        $contentType =  $request->getContentType();
 
         $auth = new authentication();
-        return json_encode($auth->token_logout());
-//        print_r($auth->token_logout());die();
-        
+
+        if ($contentType == "application/json"){
+
+            // @TODO this is token based logout
+            return json_encode($auth->token_logout());
+
+        }else{
+
+            // @TODO this is session based logout
+            if ($auth->logout()){
+                return $response->withRedirect("/home");
+            }
+
+        }
+
     }
 
     public function dashboard($request, $response, $args){

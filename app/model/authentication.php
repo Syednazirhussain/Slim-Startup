@@ -37,36 +37,75 @@ class authentication extends pdocrudhandler{
 
     // @TODO this is token based Logout
     public function token_logout(){
+
         $result = $this->select('log',array('*'));
+
         if ($result['status'] == 'success' && $result['rowsAffected'] == 1) {
+
             $secretKey = 'syednazir';
+
             $response = jwt::decode($_SESSION[$result['result'][0]->sessionid],$secretKey);
+
             if ($response->ExpireAt > time()){
+
                 if ($result['result'][0]->l_id == $response->data->userId && $result['result'][0]->username == $response->data->userName){
-                    return ['Message' => 'You can access system resourses'];
+
+                    $_SESSION[$result['result'][0]->sessionid] = '';
+
+                    $resp = $this->update('log',array('sessionid' => $_SESSION[$result['result'][0]->sessionid],'ApiKey' => ''),'where l_id = ?',array($result['result'][0]->l_id));
+
+                    if ( $resp['status'] == 'success' && $resp['rowsAffected'] == 1 ){
+
+                        return ['Message' => 'You are logged out'];
+
+                    }
                 }else{
+
                     return ['Message' => 'Anyone can tamper your api key'];
+
                 }
             }else{
+
                 return ['Message' => 'Your api key expired please login again'];
+
             }
         }
     }
 
     public function checkapikey(){
+
         $result = $this->select('log',array('*'));
+
         if ($result['status'] == 'success' && $result['rowsAffected'] == 1) {
-            $secretKey = 'syednazir';
-            $response = jwt::decode($_SESSION[$result['result'][0]->sessionid],$secretKey);
-            if ($response->ExpireAt > time()){
-                if ($result['result'][0]->l_id == $response->data->userId && $result['result'][0]->username == $response->data->userName){
-                    return 1;
+
+            if ($result['result'][0]->sessionid != null && $result['result'][0]->ApiKey != ''){
+
+                $secretKey = 'syednazir';
+
+                $response = jwt::decode($_SESSION[$result['result'][0]->sessionid],$secretKey);
+
+                if ($response->ExpireAt > time()){
+
+                    if ($result['result'][0]->l_id == $response->data->userId && $result['result'][0]->username == $response->data->userName){
+
+                        return 1;
+
+                    }else{
+
+                        return ['Message' => 'Anyone can tamper your api key'];
+
+                    }
                 }else{
-                    return ['Message' => 'Anyone can tamper your api key'];
+
+                    return ['Message' => 'Your api key expired please login again'];
+
                 }
             }else{
-                return ['Message' => 'Your api key expired please login again'];
+
+                return ['Message' => 'Please login to your account'];
+                
             }
+
         }
     }
 
@@ -89,7 +128,7 @@ class authentication extends pdocrudhandler{
             $tokenId    = base64_encode(mcrypt_create_iv(32));
             $issuedAt   = time();
             $notBefore  = $issuedAt + 10;
-            $expire     = $notBefore + 20;
+            $expire     = $notBefore + 60;
             $serverName = $_SERVER['SERVER_NAME'];
             $data = [
                 'IssueAt'  => $issuedAt,
@@ -108,8 +147,8 @@ class authentication extends pdocrudhandler{
             $_SESSION[$encode] = $jwt;
 
             // @TODO this is for JWT web token
-//                $unencodedArray = ['jwt' => $jwt];
-//                return $unencodedArray;
+/*//                $unencodedArray = ['jwt' => $jwt];
+//                return $unencodedArray;*/
 
             $resp = $this->update('log',array('ApiKey' => $jwt,'lastlogin' => date('Y-m-d h:i:s'),'User_AGENT' => $user_agent,'sessionid' => $encode,'IpAddress' => $ip),'where L_id = ?',array($userid));
             if ($resp['status'] == 'success' && $resp['rowsAffected'] == 1) {

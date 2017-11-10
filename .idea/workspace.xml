@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6bf82504-0f87-4b5f-8162-66d70f8202a8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/LoginController.php" afterPath="$PROJECT_DIR$/app/controllers/LoginController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/model/authentication.php" afterPath="$PROJECT_DIR$/app/model/authentication.php" />
     </list>
     <ignored path="Test.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,8 +29,8 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="61" column="92" selection-start-line="61" selection-start-column="81" selection-end-line="61" selection-end-column="92" />
+            <state relative-caret-position="364">
+              <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
               <folding>
                 <element signature="e#96#1168#1#PHP" expanded="false" />
                 <element signature="n#auto_logout#0;n#MainRouter#0;n#!!top" expanded="false" />
@@ -37,14 +39,23 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="dashboard.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/start/dashboard.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="LoginController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/LoginController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="47" column="50" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
+            <state relative-caret-position="721">
+              <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
               <folding>
                 <element signature="e#38#94#0#PHP" expanded="true" />
-                <element signature="n#login_action#0;n#LoginController#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -60,26 +71,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="authentication.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="authentication.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/model/authentication.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+            <state relative-caret-position="1394">
+              <caret line="105" column="16" selection-start-line="105" selection-start-column="16" selection-end-line="105" selection-end-column="16" />
               <folding>
+                <element signature="n#__construct#0;n#authentication#0;n#!!top" expanded="false" />
                 <element signature="n#RandomString#0;n#authentication#0;n#!!top" expanded="false" />
                 <element signature="n#logout#0;n#authentication#0;n#!!top" expanded="false" />
                 <element signature="n#Session#0;n#authentication#0;n#!!top" expanded="false" />
+                <element signature="e#4842#4940#0#PHP" expanded="false" />
+                <element signature="n#login#0;n#authentication#0;n#!!top" expanded="false" />
                 <element signature="n#checklogin#0;n#authentication#0;n#!!top" expanded="false" />
+                <element signature="e#7104#7192#0#PHP" expanded="false" />
+                <element signature="e#7197#8029#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserApiController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserApiController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/UserApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+            <state relative-caret-position="425">
+              <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding>
                 <element signature="e#7#63#0#PHP" expanded="true" />
               </folding>
@@ -131,10 +147,10 @@
         <option value="$PROJECT_DIR$/app/model/config.php" />
         <option value="$PROJECT_DIR$/app/controllers/ApplicationController.php" />
         <option value="$PROJECT_DIR$/app/controllers/ApiController.php" />
-        <option value="$PROJECT_DIR$/app/controllers/LoginController.php" />
-        <option value="$PROJECT_DIR$/app/model/authentication.php" />
         <option value="$PROJECT_DIR$/config/routes.php" />
         <option value="$PROJECT_DIR$/app/controllers/UserApiController.php" />
+        <option value="$PROJECT_DIR$/app/controllers/LoginController.php" />
+        <option value="$PROJECT_DIR$/app/model/authentication.php" />
       </list>
     </option>
   </component>
@@ -375,11 +391,12 @@
       <workItem from="1510117370163" duration="4625000" />
       <workItem from="1510201265531" duration="20043000" />
       <workItem from="1510287493416" duration="353000" />
+      <workItem from="1510288271811" duration="4061000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150922000" />
+    <option name="totallyTimeSpent" value="154983000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1369" height="735" extended-state="0" />
@@ -562,13 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/start/dashboard.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/model/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -631,17 +641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/LoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="47" column="50" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
-          <folding>
-            <element signature="e#38#94#0#PHP" expanded="true" />
-            <element signature="n#login_action#0;n#LoginController#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -650,23 +649,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/authentication.php">
+    <entry file="file://$PROJECT_DIR$/app/views/start/dashboard.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding>
-            <element signature="n#RandomString#0;n#authentication#0;n#!!top" expanded="false" />
-            <element signature="n#logout#0;n#authentication#0;n#!!top" expanded="false" />
-            <element signature="n#Session#0;n#authentication#0;n#!!top" expanded="false" />
-            <element signature="n#checklogin#0;n#authentication#0;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="153">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="61" column="92" selection-start-line="61" selection-start-column="81" selection-end-line="61" selection-end-column="92" />
+        <state relative-caret-position="364">
+          <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
           <folding>
             <element signature="e#96#1168#1#PHP" expanded="false" />
             <element signature="n#auto_logout#0;n#MainRouter#0;n#!!top" expanded="false" />
@@ -674,12 +668,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/LoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="721">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding>
+            <element signature="e#38#94#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/UserApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+        <state relative-caret-position="425">
+          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
           <folding>
             <element signature="e#7#63#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/authentication.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1394">
+          <caret line="105" column="16" selection-start-line="105" selection-start-column="16" selection-end-line="105" selection-end-column="16" />
+          <folding>
+            <element signature="n#__construct#0;n#authentication#0;n#!!top" expanded="false" />
+            <element signature="n#RandomString#0;n#authentication#0;n#!!top" expanded="false" />
+            <element signature="n#logout#0;n#authentication#0;n#!!top" expanded="false" />
+            <element signature="n#Session#0;n#authentication#0;n#!!top" expanded="false" />
+            <element signature="e#4842#4940#0#PHP" expanded="false" />
+            <element signature="n#login#0;n#authentication#0;n#!!top" expanded="false" />
+            <element signature="n#checklogin#0;n#authentication#0;n#!!top" expanded="false" />
+            <element signature="e#7104#7192#0#PHP" expanded="false" />
+            <element signature="e#7197#8029#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
