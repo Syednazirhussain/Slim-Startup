@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bf82504-0f87-4b5f-8162-66d70f8202a8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/UserApiController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ApplicationController.php" afterPath="$PROJECT_DIR$/app/controllers/ApplicationController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/LoginController.php" afterPath="$PROJECT_DIR$/app/controllers/LoginController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/model/authentication.php" afterPath="$PROJECT_DIR$/app/model/authentication.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/model/config.php" afterPath="$PROJECT_DIR$/app/model/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/e733c2c2809cf18d64d8d0e6af639f04101f3b21.php" afterPath="$PROJECT_DIR$/cache/e733c2c2809cf18d64d8d0e6af639f04101f3b21.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.php" afterPath="$PROJECT_DIR$/config/routes.php" />
     </list>
     <ignored path="Test.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -381,12 +374,12 @@
       <workItem from="1510114392058" duration="2401000" />
       <workItem from="1510117370163" duration="4625000" />
       <workItem from="1510201265531" duration="20043000" />
-      <workItem from="1510287493416" duration="127000" />
+      <workItem from="1510287493416" duration="353000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150696000" />
+    <option name="totallyTimeSpent" value="150922000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1369" height="735" extended-state="0" />
