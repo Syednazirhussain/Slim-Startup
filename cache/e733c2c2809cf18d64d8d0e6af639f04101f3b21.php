@@ -7,6 +7,7 @@
     <script src="../assets/app/js/myscript.js"></script>
 </head>
 <body>
+
 <div id="website_info" data-website-url="<?php echo $GLOBALS['website_url']?>"></div>
 <form id="login">
     <p>User Name :<br>

@@ -33,16 +33,39 @@ class MainRouter
 
         };
 
+        $ValidApiKeyMiddleware = function($request, $response, $next){
+            
+            $route = $request->getAttribute('route');
+            $arguments = $route->getArguments();
+            $validApiKeys = config::getValidApiKeys();
+            if(in_array($arguments['auth'],$validApiKeys)){
+                return  $next($request, $response);
+            }else{
+                $this->response = array('status' => false,'code' => 401,'message'=>'authentication error');
+                echo json_encode($this->response);
+            }
+            return $response;
+            
+        };
+
 
         $app->get('/', HomeController::class . ':landing')->setName('root');
         $app->get('/home', HomeController::class . ':home')->setName('home');
         $app->post('/login',LoginController::class.':login_action');
         $app->get('/logout',LoginController::class.':logout');
         $app->get('/dashboard',LoginController::class.':dashboard')->add($authenticateUser);
-        $app->post('/postdata',LoginController::class.':postdata');
+
+        // @TODO this route is reserverd for API Calls
+        $app->get('/courses',UserApiController::class.':GetAllCourse');
+        $app->get('/questions',UserApiController::class.':GetAllQuestion');
+        $app->get('/answer/{question_id}',UserApiController::class.':GetAnswerByQuestionId');
+        $app->get('/answer/{question_id}/{answer_id}',UserApiController::class.':CheckAnswer');
+
 
         // @TODO this route is reserved for verification of token
         //$app->get('/resource',LoginController::class.':verifyToken');
+        // @todo This route is used to test simple jwt token
+        //$app->post('/postdata',LoginController::class.':postdata');
             
         }
 

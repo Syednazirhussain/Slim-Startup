@@ -5,9 +5,16 @@
 
 class LoginController extends ApplicationController{
 
+
+
     public function login_action($request, $response, $args) {
 
+        // @TODO this is form api login
+        $_POST = $request->getParams();
+
+
         $status1 = Check_Feild_NotEmpty($_POST);
+
         $status2 = Check_Valid_Email($_POST['username']);
 
         $this->error = array_merge($status1,$status2);
@@ -16,12 +23,12 @@ class LoginController extends ApplicationController{
 
 
             // @todo This is Session baseed authentication
-            $auth = new authentication();
-            echo json_encode($auth->login($_POST));
+/*            $auth = new authentication();
+            echo json_encode($auth->login($_POST));*/
 
             // @todo This is Token based authentication
-/*            $auth = new authentication();
-            echo json_encode($auth->create_token($_POST));*/
+            $auth = new authentication();
+            echo json_encode($auth->create_token($_POST));
 
         }else{
             echo json_encode($this->error);
@@ -30,10 +37,17 @@ class LoginController extends ApplicationController{
     }
 
     public function logout($request, $response, $args){
-        $auth = new authentication();
+
+        // @TODO this is session based logout
+/*        $auth = new authentication();
         if ($auth->logout()){
             return $response->withRedirect("/home");
-        }
+        }*/
+
+        $auth = new authentication();
+        return json_encode($auth->token_logout());
+//        print_r($auth->token_logout());die();
+        
     }
 
     public function dashboard($request, $response, $args){

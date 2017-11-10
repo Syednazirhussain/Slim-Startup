@@ -4,7 +4,7 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 class authentication extends pdocrudhandler{
     
-   
+
 
     public function __construct(){
         $this->_pdo = $this->connect();
@@ -21,6 +21,7 @@ class authentication extends pdocrudhandler{
         return $key;
     }
 
+    // @TODO this is session based logout
     public function logout(){
         $result = $this->select('log',array('sessionid'));
         $key = $result['result'][0]->sessionid;
@@ -31,6 +32,41 @@ class authentication extends pdocrudhandler{
 //            header('Location:'.$GLOBALS['website_url'].'/');
         }else{
             return false;
+        }
+    }
+
+    // @TODO this is token based Logout
+    public function token_logout(){
+        $result = $this->select('log',array('*'));
+        if ($result['status'] == 'success' && $result['rowsAffected'] == 1) {
+            $secretKey = 'syednazir';
+            $response = jwt::decode($_SESSION[$result['result'][0]->sessionid],$secretKey);
+            if ($response->ExpireAt > time()){
+                if ($result['result'][0]->l_id == $response->data->userId && $result['result'][0]->username == $response->data->userName){
+                    return ['Message' => 'You can access system resourses'];
+                }else{
+                    return ['Message' => 'Anyone can tamper your api key'];
+                }
+            }else{
+                return ['Message' => 'Your api key expired please login again'];
+            }
+        }
+    }
+
+    public function checkapikey(){
+        $result = $this->select('log',array('*'));
+        if ($result['status'] == 'success' && $result['rowsAffected'] == 1) {
+            $secretKey = 'syednazir';
+            $response = jwt::decode($_SESSION[$result['result'][0]->sessionid],$secretKey);
+            if ($response->ExpireAt > time()){
+                if ($result['result'][0]->l_id == $response->data->userId && $result['result'][0]->username == $response->data->userName){
+                    return 1;
+                }else{
+                    return ['Message' => 'Anyone can tamper your api key'];
+                }
+            }else{
+                return ['Message' => 'Your api key expired please login again'];
+            }
         }
     }
 
@@ -45,10 +81,15 @@ class authentication extends pdocrudhandler{
         if ($result['status'] == 'success' && $result['rowsAffected'] == 1) {
             $userid = $result['result'][0]->l_id;
             $username = $result['result'][0]->username;
+            $user_agent =  $_SERVER['HTTP_USER_AGENT'];
+            $userid = $result['result'][0]->l_id;
+            $encode  = $this->RandomString(10);
+            $ip = $_SERVER['REMOTE_ADDR'];
+
             $tokenId    = base64_encode(mcrypt_create_iv(32));
             $issuedAt   = time();
             $notBefore  = $issuedAt + 10;
-            $expire     = $notBefore + 60;
+            $expire     = $notBefore + 20;
             $serverName = $_SERVER['SERVER_NAME'];
             $data = [
                 'IssueAt'  => $issuedAt,
@@ -64,8 +105,19 @@ class authentication extends pdocrudhandler{
             // @TODO this secret ki come from login form and store in some where as you want
             $secretKey = 'syednazir';
             $jwt = JWT::encode($data, $secretKey);
-            $unencodedArray = ['jwt' => $jwt];
-            return $unencodedArray;
+            $_SESSION[$encode] = $jwt;
+
+            // @TODO this is for JWT web token
+//                $unencodedArray = ['jwt' => $jwt];
+//                return $unencodedArray;
+
+            $resp = $this->update('log',array('ApiKey' => $jwt,'lastlogin' => date('Y-m-d h:i:s'),'User_AGENT' => $user_agent,'sessionid' => $encode,'IpAddress' => $ip),'where L_id = ?',array($userid));
+            if ($resp['status'] == 'success' && $resp['rowsAffected'] == 1) {
+                // @TODO this is for api Login message
+                return array_merge(['Message' => 'You are successfully login','ApiKey' => $jwt],$resp);
+            }else{
+                return ['error' => 'There is some problem'];
+            }
 
         }else{
             return array("status" => "username or password not found");
