@@ -81,6 +81,7 @@ $(document).ready(function(){
     $('#UpdateCourse').hide();
 
 
+
     $('.ques_cancel').click(function () {
 
         $('#UpdateCourse').hide();
@@ -205,7 +206,7 @@ $(document).ready(function(){
         var subjectId = $(this).val();
 
         $.ajax({
-            url: '/questions/'+subjectId,
+            url: '/question/'+subjectId,
             type: 'GET',
             dataType    : 'json',
             async: false,
@@ -378,6 +379,92 @@ $(document).ready(function(){
             }
         });
 
+    });
+    
+    $('#edit_question').click(function () {
+        $('#subject').hide();
+        $('#question').hide();
+        $('#first').hide();
+        $('#second').hide();
+        $('#EditCourse').hide();
+        $('#updatecourse').hide();
+        $('#UpdateCourse').hide();
+
+        var html = '';
+        $.ajax({
+            url: '/course',
+            type: 'GET',
+            dataType    : 'json',
+            async: false,
+            success: function (data) {
+                html += '<lable>Select Course&nbsp;</lable>';
+                html += '<select name="courses" id="courseid">';
+                for(var i=0;i<data['result'].length;i++){
+                    html += "<option value='"+data['result'][i]['id']+"'>"+data['result'][i]['subject_name']+"</option>";
+                }
+                html += '</select>';
+                $('#EditQuestion').html(html);
+            }
+        });
+    });
+
+    $("body").delegate( "#courseid", "change", function(){
+        //alert($(this).val());
+        var html = '<br><br>';
+        var courseId = $(this).val();
+        var count = 0;
+        $.ajax({
+            url: '/question/'+courseId,
+            type: 'GET',
+            dataType    : 'json',
+            async: false,
+            success: function (data) {
+                count = data['rowsAffected'];
+                for (var i =0 ; i<count ; i++){
+                    html += '<lable>Edit Question&nbsp;</lable>';
+                    html += '<input type="text" id="'+data['result'][i]['id']+'" class="value'+data['result'][i]['id']+'" name="ques'+i+'" value="'+data['result'][i]['question']+'">';
+                    html += '&nbsp;&nbsp;<a style="cursor: pointer;text-decoration: underline;color: #0000E6" class="update" id="'+data['result'][i]['id']+'">Update</a><br><br>';
+                }
+                html += '<br><br><input type="button" value="Back" class="back">';
+                $('#UpdateQuestion').html(html);
+            }
+        });
+    });
+
+    $("body").delegate( ".update", "click", function(){
+
+        var questionId = $(this).attr('id');
+        var jsobj = {
+            'questionId' : questionId,
+            'question'   : $(".value"+questionId).val()
+        }
+        $.ajax({
+            url: '/question/'+questionId,
+            type: 'PUT',
+            data : jsobj,
+            dataType    : 'json',
+            async: false,
+            success: function (data) {
+                alert("Status : "+data['status']);
+            }
+        });
+
+    });
+
+    $("body").delegate( ".back", "click", function(){
+        $('#EditQuestion').hide();
+        $('#UpdateQuestion').hide();
+        $('#UpdateCourse').hide();
+        $('#EditCourse').hide();
+        $('#ViewCourse').hide();
+        $('#option').show();
+        $('#first').hide();
+        $('#subject').hide();
+        $('#getSubject').hide();
+        $('#question').hide();
+        $('#table').hide();
+        $('#edit_question').hide();
+        $('#edit_question').show();
     });
 
 

@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bf82504-0f87-4b5f-8162-66d70f8202a8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/HomeController.php" afterPath="$PROJECT_DIR$/app/controllers/HomeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/model/authentication.php" afterPath="$PROJECT_DIR$/app/model/authentication.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/start/dashboard.blade.php" afterPath="$PROJECT_DIR$/app/views/start/dashboard.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/74de12431d394181010364d6d4258a9ec52e6867.php" afterPath="$PROJECT_DIR$/cache/74de12431d394181010364d6d4258a9ec52e6867.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.php" afterPath="$PROJECT_DIR$/config/routes.php" />
@@ -30,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="65" column="51" selection-start-line="65" selection-start-column="51" selection-end-line="65" selection-end-column="51" />
+            <state relative-caret-position="119">
+              <caret line="64" column="28" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
               <folding>
                 <element signature="e#96#1156#1#PHP" expanded="false" />
                 <element signature="n#auto_logout#0;n#MainRouter#0;n#!!top" expanded="false" />
@@ -46,8 +44,8 @@
       <file leaf-file-name="dashboard.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/start/dashboard.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+            <state relative-caret-position="289">
+              <caret line="17" column="80" selection-start-line="17" selection-start-column="67" selection-end-line="17" selection-end-column="80" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -62,39 +60,39 @@
       <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/HomeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+            <state relative-caret-position="349">
+              <caret line="67" column="36" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
               <folding>
                 <element signature="n#home#0;n#HomeController#0;n#!!top" expanded="false" />
                 <element signature="n#dashboard#0;n#HomeController#0;n#!!top" expanded="false" />
                 <element signature="n#CreateCourse#0;n#HomeController#0;n#!!top" expanded="false" />
                 <element signature="n#CreateQuestions#0;n#HomeController#0;n#!!top" expanded="false" />
                 <element signature="n#GetAllQuestionByCourseId#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="n#AddAnswerToQuestion#0;n#HomeController#0;n#!!top" expanded="false" />
                 <element signature="n#UpdateCourseById#0;n#HomeController#0;n#!!top" expanded="false" />
-                <marker date="1510395053786" expanded="true" signature="1942:1983" placeholder="insert into answer... " />
-                <marker date="1510395053786" expanded="false" signature="2677:2810" placeholder="..." />
-                <marker date="1510395053786" expanded="false" signature="2875:3093" placeholder="..." />
+                <marker date="1510403106066" expanded="true" signature="2262:2303" placeholder="insert into answer... " />
+                <marker date="1510403106066" expanded="false" signature="2997:3130" placeholder="..." />
+                <marker date="1510403106066" expanded="false" signature="3195:3413" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myscript.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="myscript.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/app/js/myscript.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="222" column="40" selection-start-line="222" selection-start-column="40" selection-end-line="222" selection-end-column="40" />
+            <state relative-caret-position="307">
+              <caret line="466" column="35" selection-start-line="466" selection-start-column="35" selection-end-line="466" selection-end-column="35" />
               <folding>
                 <element signature="e#147#2455#0" expanded="false" />
                 <element signature="e#1341#1911#0" expanded="false" />
                 <element signature="e#1925#2437#0" expanded="false" />
-                <element signature="e#2694#2983#0" expanded="false" />
-                <element signature="e#3027#3126#0" expanded="false" />
-                <element signature="e#3173#3823#0" expanded="false" />
-                <element signature="e#3868#4527#0" expanded="false" />
-                <element signature="e#4574#5710#0" expanded="false" />
-                <element signature="e#5757#6343#0" expanded="false" />
-                <element signature="e#6387#6921#0" expanded="false" />
+                <element signature="e#3028#3127#0" expanded="false" />
+                <element signature="e#3174#3824#0" expanded="false" />
+                <element signature="e#3869#4528#0" expanded="false" />
+                <element signature="e#4575#5711#0" expanded="false" />
+                <element signature="e#5758#6344#0" expanded="false" />
+                <element signature="e#6388#6921#0" expanded="false" />
                 <element signature="e#6985#7570#0" expanded="false" />
                 <element signature="e#7631#8161#0" expanded="false" />
                 <element signature="e#8200#8681#0" expanded="false" />
@@ -102,9 +100,11 @@
                 <element signature="e#10481#10706#0" expanded="false" />
                 <element signature="e#10783#11446#0" expanded="false" />
                 <element signature="e#11489#12169#0" expanded="false" />
-                <element signature="e#12174#12748#0" expanded="false" />
-                <marker date="1510394961931" expanded="true" signature="9784:9814" placeholder="..." />
-                <marker date="1510394961931" expanded="true" signature="9884:9914" placeholder="..." />
+                <element signature="e#12219#13075#0" expanded="false" />
+                <element signature="e#15164#15738#0" expanded="false" />
+                <marker date="1510403739785" expanded="true" signature="9784:9814" placeholder="..." />
+                <marker date="1510403739785" expanded="true" signature="9884:9914" placeholder="..." />
+                <marker date="1510403739785" expanded="true" signature="13838:13895" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -178,10 +178,10 @@
         <option value="$PROJECT_DIR$/app/controllers/LoginController.php" />
         <option value="$PROJECT_DIR$/app/model/subject.php" />
         <option value="$PROJECT_DIR$/app/model/authentication.php" />
-        <option value="$PROJECT_DIR$/public/assets/app/js/myscript.js" />
-        <option value="$PROJECT_DIR$/app/controllers/HomeController.php" />
-        <option value="$PROJECT_DIR$/config/routes.php" />
         <option value="$PROJECT_DIR$/app/views/start/dashboard.blade.php" />
+        <option value="$PROJECT_DIR$/config/routes.php" />
+        <option value="$PROJECT_DIR$/app/controllers/HomeController.php" />
+        <option value="$PROJECT_DIR$/public/assets/app/js/myscript.js" />
       </list>
     </option>
   </component>
@@ -455,12 +455,12 @@
       <workItem from="1510201265531" duration="20043000" />
       <workItem from="1510287493416" duration="353000" />
       <workItem from="1510288271811" duration="21039000" />
-      <workItem from="1510376607513" duration="14822000" />
+      <workItem from="1510376607513" duration="20630000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186783000" />
+    <option name="totallyTimeSpent" value="192591000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1369" height="735" extended-state="0" />
@@ -499,7 +499,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -756,57 +756,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="64" column="28" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
+          <folding>
+            <element signature="e#96#1156#1#PHP" expanded="false" />
+            <element signature="n#auto_logout#0;n#MainRouter#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+        <state relative-caret-position="349">
+          <caret line="67" column="36" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
           <folding>
             <element signature="n#home#0;n#HomeController#0;n#!!top" expanded="false" />
             <element signature="n#dashboard#0;n#HomeController#0;n#!!top" expanded="false" />
             <element signature="n#CreateCourse#0;n#HomeController#0;n#!!top" expanded="false" />
             <element signature="n#CreateQuestions#0;n#HomeController#0;n#!!top" expanded="false" />
             <element signature="n#GetAllQuestionByCourseId#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="n#AddAnswerToQuestion#0;n#HomeController#0;n#!!top" expanded="false" />
             <element signature="n#UpdateCourseById#0;n#HomeController#0;n#!!top" expanded="false" />
-            <marker date="1510395053786" expanded="true" signature="1942:1983" placeholder="insert into answer... " />
-            <marker date="1510395053786" expanded="false" signature="2677:2810" placeholder="..." />
-            <marker date="1510395053786" expanded="false" signature="2875:3093" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/app/js/myscript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="222" column="40" selection-start-line="222" selection-start-column="40" selection-end-line="222" selection-end-column="40" />
-          <folding>
-            <element signature="e#147#2455#0" expanded="false" />
-            <element signature="e#1341#1911#0" expanded="false" />
-            <element signature="e#1925#2437#0" expanded="false" />
-            <element signature="e#2694#2983#0" expanded="false" />
-            <element signature="e#3027#3126#0" expanded="false" />
-            <element signature="e#3173#3823#0" expanded="false" />
-            <element signature="e#3868#4527#0" expanded="false" />
-            <element signature="e#4574#5710#0" expanded="false" />
-            <element signature="e#5757#6343#0" expanded="false" />
-            <element signature="e#6387#6921#0" expanded="false" />
-            <element signature="e#6985#7570#0" expanded="false" />
-            <element signature="e#7631#8161#0" expanded="false" />
-            <element signature="e#8200#8681#0" expanded="false" />
-            <element signature="e#8729#10417#0" expanded="false" />
-            <element signature="e#10481#10706#0" expanded="false" />
-            <element signature="e#10783#11446#0" expanded="false" />
-            <element signature="e#11489#12169#0" expanded="false" />
-            <element signature="e#12174#12748#0" expanded="false" />
-            <marker date="1510394961931" expanded="true" signature="9784:9814" placeholder="..." />
-            <marker date="1510394961931" expanded="true" signature="9884:9914" placeholder="..." />
+            <marker date="1510403106066" expanded="true" signature="2262:2303" placeholder="insert into answer... " />
+            <marker date="1510403106066" expanded="false" signature="2997:3130" placeholder="..." />
+            <marker date="1510403106066" expanded="false" signature="3195:3413" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/start/dashboard.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+        <state relative-caret-position="289">
+          <caret line="17" column="80" selection-start-line="17" selection-start-column="67" selection-end-line="17" selection-end-column="80" />
           <folding>
             <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -817,13 +800,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.php">
+    <entry file="file://$PROJECT_DIR$/public/assets/app/js/myscript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="65" column="51" selection-start-line="65" selection-start-column="51" selection-end-line="65" selection-end-column="51" />
+        <state relative-caret-position="307">
+          <caret line="466" column="35" selection-start-line="466" selection-start-column="35" selection-end-line="466" selection-end-column="35" />
           <folding>
-            <element signature="e#96#1156#1#PHP" expanded="false" />
-            <element signature="n#auto_logout#0;n#MainRouter#0;n#!!top" expanded="false" />
+            <element signature="e#147#2455#0" expanded="false" />
+            <element signature="e#1341#1911#0" expanded="false" />
+            <element signature="e#1925#2437#0" expanded="false" />
+            <element signature="e#3028#3127#0" expanded="false" />
+            <element signature="e#3174#3824#0" expanded="false" />
+            <element signature="e#3869#4528#0" expanded="false" />
+            <element signature="e#4575#5711#0" expanded="false" />
+            <element signature="e#5758#6344#0" expanded="false" />
+            <element signature="e#6388#6921#0" expanded="false" />
+            <element signature="e#6985#7570#0" expanded="false" />
+            <element signature="e#7631#8161#0" expanded="false" />
+            <element signature="e#8200#8681#0" expanded="false" />
+            <element signature="e#8729#10417#0" expanded="false" />
+            <element signature="e#10481#10706#0" expanded="false" />
+            <element signature="e#10783#11446#0" expanded="false" />
+            <element signature="e#11489#12169#0" expanded="false" />
+            <element signature="e#12219#13075#0" expanded="false" />
+            <element signature="e#15164#15738#0" expanded="false" />
+            <marker date="1510403739785" expanded="true" signature="9784:9814" placeholder="..." />
+            <marker date="1510403739785" expanded="true" signature="9884:9914" placeholder="..." />
+            <marker date="1510403739785" expanded="true" signature="13838:13895" placeholder="..." />
           </folding>
         </state>
       </provider>

@@ -106,6 +106,11 @@
 
 <div id="EditCourse"></div>
 
+<div id="EditQuestion"></div>
+
+<div id="UpdateQuestion">
+
+</div>
 
 
 

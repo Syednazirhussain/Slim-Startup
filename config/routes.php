@@ -61,7 +61,8 @@ class MainRouter
 
         // @TODO This routes is related with question
         $app->post('/question',HomeController::class.':CreateQuestions')->add($authenticateUser);
-        $app->get('/questions/{subjectid}',HomeController::class.':GetAllQuestionByCourseId')->add($authenticateUser);
+        $app->put('/question/{questionid}',HomeController::class.':UpdateQuestionById')->add($authenticateUser);
+        $app->get('/question/{subjectid}',HomeController::class.':GetAllQuestionByCourseId')->add($authenticateUser);
 
         // @TODO This routes is related with answer
         $app->post('/answer',HomeController::class.':AddAnswerToQuestion')->add($authenticateUser);

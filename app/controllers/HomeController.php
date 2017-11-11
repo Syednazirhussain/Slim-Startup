@@ -61,6 +61,13 @@ class HomeController extends ApplicationController{
 
     }
 
+    public function UpdateQuestionById($request, $response, $args){
+        $params = $request->getParams();
+        $pdo = new pdocrudhandler();
+        $result = $pdo->update('questions',array('question' => $params['question']),'where id = ?',array($params['questionId']));
+        return json_encode($result);
+    }
+
     public function AddAnswerToQuestion($request, $response, $args){
         $params = $request->getParams();
 
