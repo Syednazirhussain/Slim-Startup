@@ -5,7 +5,7 @@ class MainRouter
     public function configure($app){
 
         $authenticateUser = function ($request, $response, $next) {
-            
+
             $uri = $request->getUri()->withPath($this->router->pathFor('root'));
             $status = 0;
             session_regenerate_id();
@@ -49,6 +49,8 @@ class MainRouter
         };
 
 
+
+
         $app->get('/', HomeController::class . ':landing')->setName('root');
         $app->get('/home', HomeController::class . ':home')->setName('home');
         $app->post('/login',LoginController::class.':login_action');
@@ -56,12 +58,20 @@ class MainRouter
 
 
         $app->get('/dashboard',HomeController::class.':dashboard')->add($authenticateUser);
-        $app->post('/create/course',HomeController::class.':CreateCourse')->add($authenticateUser);
-        $app->post('/create/questions',HomeController::class.':CreateQuestions')->add($authenticateUser);
-        $app->post('/add/questions',HomeController::class.':AddQuestions')->add($authenticateUser);
-        $app->post('/course/questions',HomeController::class.':GetAllQuestionByCourseId')->add($authenticateUser);
-        $app->post('/add/answers',HomeController::class.':AddAnswerToQuestion')->add($authenticateUser);
 
+        // @TODO This routes is related with question
+        $app->post('/question',HomeController::class.':CreateQuestions')->add($authenticateUser);
+        $app->get('/questions/{subjectid}',HomeController::class.':GetAllQuestionByCourseId')->add($authenticateUser);
+
+        // @TODO This routes is related with answer
+        $app->post('/answer',HomeController::class.':AddAnswerToQuestion')->add($authenticateUser);
+
+
+        // @TODO This routes is related with courses
+        $app->get('/course',HomeController::class.':GetAllCourse')->add($authenticateUser);
+        $app->post('/course',HomeController::class.':CreateCourse')->add($authenticateUser);
+        $app->get('/course/{id}',HomeController::class.':GetCourseById')->add($authenticateUser);
+        $app->put('/course/{id}',HomeController::class.':UpdateCourseById')->add($authenticateUser);
 
         // @TODO this route is reserverd for API Calls
         $app->get('/courses',UserApiController::class.':GetAllCourse');

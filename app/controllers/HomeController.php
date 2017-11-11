@@ -41,19 +41,10 @@ class HomeController extends ApplicationController{
         return $sub->CreateSubject($_FILES,$request->getParams());
 
     }
-    
+
     public function CreateQuestions($request, $response, $args){
 
-        $pdo = new pdocrudhandler();
-        $result = $pdo->select('subject',array('*'));
-        return json_encode($result);
-        
-    }
-
-    public function AddQuestions($request, $response, $args){
-
         $params = $request->getParams();
-
         $pdo = new pdocrudhandler();
         $result = $pdo->insert('questions',array('question' => $params['question'] , 'subjectid' => $params['subjectid']));
         return json_encode($result);
@@ -62,15 +53,18 @@ class HomeController extends ApplicationController{
 
     public function GetAllQuestionByCourseId($request, $response, $args){
 
-        $params = $request->getParams();
+
+        $subjectid = $request->getAttribute('subjectid');
         $pdo = new pdocrudhandler();
-        $result = $pdo->select('questions',array('*'),'where subjectid = ?',array($params['subjectid']));
+        $result = $pdo->select('questions',array('*'),'where subjectid = ?',array($subjectid));
         return json_encode($result);
 
     }
 
     public function AddAnswerToQuestion($request, $response, $args){
         $params = $request->getParams();
+
+
 
         $querey = "insert into answer(questionid,ans,status) ";
 
@@ -81,10 +75,34 @@ class HomeController extends ApplicationController{
         $pdo = new pdocrudhandler();
         $result = $pdo->executeqry($querey);
         if ($result['status'] == 'success'){
-            return ['Message' => 'Record added successfully'];
+            return json_encode(['Message' => 'Record added successfully']);
         }else{
-            return ['Message' => 'Record not added successfully'];
+            return json_encode(['Message' => 'Record not added successfully']);
         }
+
     }
+
+    public function GetAllCourse($request, $response, $args){
+        $pdo = new pdocrudhandler();
+        $result = $pdo->select('subject',array('*'));
+        return json_encode($result);
+    }
+
+    public function GetCourseById($request, $response, $args){
+        $id = $destination = $request->getAttribute('id');
+        $pdo = new pdocrudhandler();
+        $result = $pdo->select('subject',array('*'),'where id = ?',array($id));
+        return json_encode($result);
+    }
+
+    public function UpdateCourseById($request, $response, $args){
+        $params = $request->getParams();
+        $id = $request->getAttribute('id');
+        $pdo = new pdocrudhandler();
+        $result = $pdo->update('subject',array('subject_name' => $params['course_name']),'where id = ?',array($id));
+        return json_encode($result);
+    }
+
+
 
 }

@@ -9,11 +9,15 @@
 <body>
 <h1>Login As <?php echo e($result[0]->username); ?></h1>
 
+
 <ul id="option">
     <li> <a style="cursor: pointer;text-decoration: underline" id="new_subject">Create Course</a> </li>
     <li> <a style="cursor: pointer;text-decoration: underline" id="add_question">Questions</a> </li>
-    <li> <a style="cursor: pointer;text-decoration: underline" id="add_answer">Answer</a> </li>
+    <li> <a style="cursor: pointer;text-decoration: underline" id="add_answer">Answers</a> </li>
+    <li> <a style="cursor: pointer;text-decoration: underline" id="edit_course">Edit Course</a> </li>
+    <li> <a style="cursor: pointer;text-decoration: underline" id="edit_question">Edit Question</a> </li>
 </ul>
+
 
 <form id="subject">
     <div class="container">
@@ -88,6 +92,21 @@
         </div>
     </div>
 </form>
+
+<div id="UpdateCourse">
+    <label><b>Edit Course</b></label>
+    <input type="text" id="courseupdate"  name="course" required>
+    <br><br>
+    <div class="clearfix">
+        <button type="button" class="ques_cancel">Cancel</button>
+        <button type="button" id="updatecourse">Update</button>
+    </div>
+</div>
+
+
+<div id="EditCourse"></div>
+
+
 
 <br><br><br>
 <a href=<?php echo $GLOBALS['website_url']."/logout" ?> >Logout</a>

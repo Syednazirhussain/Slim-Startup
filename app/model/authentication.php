@@ -128,7 +128,7 @@ class authentication extends pdocrudhandler{
             $tokenId    = base64_encode(mcrypt_create_iv(32));
             $issuedAt   = time();
             $notBefore  = $issuedAt + 10;
-            $expire     = $notBefore + 60;
+            $expire     = $notBefore + 30;
             $serverName = $_SERVER['SERVER_NAME'];
             $data = [
                 'IssueAt'  => $issuedAt,

@@ -76,8 +76,15 @@ $(document).ready(function(){
     $('#question').hide();
     $('#first').hide();
     $('#second').hide();
+    $('#EditCourse').hide();
+    $('#updatecourse').hide();
+    $('#UpdateCourse').hide();
+
 
     $('.ques_cancel').click(function () {
+
+        $('#UpdateCourse').hide();
+        $('#EditCourse').hide();
         $('#ViewCourse').hide();
         $('#option').show();
         $('#first').hide();
@@ -85,6 +92,7 @@ $(document).ready(function(){
         $('#getSubject').hide();
         $('#question').hide();
         $('#table').hide();
+
     });
 
     $('#new_subject').click(function () {
@@ -98,7 +106,7 @@ $(document).ready(function(){
         var formData = new FormData(this);
 
         $.ajax({
-            url: '/create/course',
+            url: '/course',
             type: 'POST',
             data: formData,
             async: false,
@@ -120,39 +128,42 @@ $(document).ready(function(){
     });
 
     $('#add_question').click(function () {
+        html = "";
         $('#ViewCourse').hide();
         $('#option').hide();
         $('#first').hide();
         $('#second').hide();
         $('#subject').hide();
         $('#question').show();
-        $.post( "/create/questions", function( data ) {
-            html = "";
-            var jsObj = JSON.parse(data);
-            for(var i=0;i<jsObj['result'].length;i++){
-                html += "<option value='"+jsObj['result'][i]['id']+"'>"+jsObj['result'][i]['subject_name']+"</option>";
+        $.ajax({
+            url: '/course',
+            type: 'GET',
+            dataType    : 'json',
+            async: false,
+            success: function (data) {
+                    for(var i=0;i<data['result'].length;i++){
+                        html += "<option value='"+data['result'][i]['id']+"'>"+data['result'][i]['subject_name']+"</option>";
+                    }
+                    $('#subjectid').html(html);
             }
-            $('#subjectid').html(html);
         });
-
     });
 
     $("#question" ).submit(function(event) {
         var formData = {
             'subjectid'       : $('#subjectid').val(),
-            'question'       : $('#questionName').val(),
-            'call'           : 'AddQuestions'
+            'question'       : $('#questionName').val()
         };
         $.ajax({
                 type        : 'POST',
-                url         : '/add/questions',
+                url         : '/question',
                 data        : formData,
                 dataType    : 'json',
                 encode      : true,
             })
             .done(function(data) {
-                var jsObj = JSON.parse(data);
-                if (jsObj['rowsAffected'] == 1 && jsObj['status'] ==  'success'){
+                //var jsObj = JSON.parse(data);
+                if (data['rowsAffected'] == 1 && data['status'] ==  'success'){
                     $(':input', '#question')
                         .not(':button, :submit, :reset, :hidden')
                         .val('')
@@ -161,7 +172,7 @@ $(document).ready(function(){
                     $("#addUser").trigger('reset');
                     document.getElementById("question").reset();
                     alert('Record added successfully..');
-                    console.log(jsObj);
+                    console.log(data);
                 }else{
                     alert('Un Authorized user');
                 }
@@ -170,34 +181,41 @@ $(document).ready(function(){
     });
     
     $('#add_answer').click(function () {
+        var html = "";
         $('#subject').hide();
         $('#question').hide();
         $('#option').hide();
         $('#first').show();
-        $.post( "/create/questions", function( data ) {
-            html = "";
-            var jsObj = JSON.parse(data);
-            for(var i=0;i<jsObj['result'].length;i++){
-                html += "<option value='"+jsObj['result'][i]['id']+"'>"+jsObj['result'][i]['subject_name']+"</option>";
+        $.ajax({
+            url: '/course',
+            type: 'GET',
+            dataType    : 'json',
+            async: false,
+            success: function (data) {
+                for(var i=0;i<data['result'].length;i++){
+                    html += "<option value='"+data['result'][i]['id']+"'>"+data['result'][i]['subject_name']+"</option>";
+                }
+                $('#subjectids').html(html);
             }
-            $('#subjectids').html(html);
         });
     });
 
     $('#subjectids').change(function () {
-        //alert($(this).val());
-        var jsobj = {
-            'subjectid' : $(this).val()
-        }
-        $.post( "/course/questions",jsobj, function( data ) {
-            html = "";
-            var jsObj = JSON.parse(data);
-            for(var i=0;i<jsObj['result'].length;i++){
-                html += "<option value='"+jsObj['result'][i]['id']+"'>"+jsObj['result'][i]['question']+"</option>";
+        var html = "";
+        var subjectId = $(this).val();
+
+        $.ajax({
+            url: '/questions/'+subjectId,
+            type: 'GET',
+            dataType    : 'json',
+            async: false,
+            success: function (data) {
+                    for(var i=0;i<data['result'].length;i++){
+                        html += "<option value='"+data['result'][i]['id']+"'>"+data['result'][i]['question']+"</option>";
+                    }
+                    $('#questionid').html(html);
             }
-            $('#questionid').html(html);
         });
-        
     });
 
     var data = {};
@@ -208,7 +226,7 @@ $(document).ready(function(){
             'i'     :   1,
             'questionid' : $('#questionid').val(),
             'answer' : $('#answer').val(),
-            'status' : $('.ans_status').val()
+            'status' : $("input[name='status']:checked"). val()
         }
         $('input[type="radio"]:not(:checked)');
         $(':input', '#first')
@@ -255,16 +273,112 @@ $(document).ready(function(){
             'answer' : $('#ans').val(),
             'status' : $("input[name='status']:checked"). val()
         }
-        $.post("/add/answers",data,function (data) {
+        $.post("/answer",data,function (data) {
             alert(data);
             document.getElementById("first").reset();
             document.getElementById("second").reset();
-            // setInterval(function(){
-            //  window.location.href = "login.php";
-            //  }, 5000);
         });
     });
+    
+    $('#edit_course').click(function () {
+        $('#option').hide();
+        $('#first').hide();
+        $('#second').hide();
+        $('#subject').hide();
+        var html = '';
+        $.ajax({
+                type        : 'GET',
+                url         : 'course',
+                dataType    : 'json',
+                encode      : true,
+            })
+            .done(function(data) {
+                if (data['rowsAffected'] >= 1 && data['status'] ==  'success'){
+                    html += '<table>';
+                    html += '<thead>';
+                    html += '<th></th>';
+                    html += '<th>Course title</th>';
+                    html += '<th>Action</th>';
+                    html += '</thead>';
+                    html += '<tbody>';
+                    for (var i = 0 ; i<data['result'].length ; i++){
+                        html += '<tr>';
+                        html += '<td> <img src=""  height="42" width="42"> </td>';
+                        html += '<td>'+data['result'][i].subject_name+'</td>';
+                        html += '<td><a style="cursor: pointer;color: #0000E6" class="EditC" id="'+data['result'][i].id+'">Edit</a>&nbsp;<a style="cursor: pointer;color: #0000E6" class="DeleteC" id="'+data['result'][i].id+'">Delete</a></td>';
+                        html += '</tr>';
+                    }
+                    html += '</tbody>';
+                    html += '</table>';
+                    html += '<button type="button" class="ques_cancel">Cancel</button>';
+                    $('#EditCourse').html(html);
+                    $('#EditCourse').show();
+                }else{
+                    alert('Un Authorized user');
+                }
+            });
+    });
 
+    $("body").delegate( ".ques_cancel", "click", function() {
+        $('#option').show();
+        $('#edit_course').show();
+        $('#first').hide();
+        $('#second').hide();
+        $('#subject').hide();
+        $('#updatecourse').hide();
+        $('#EditCourse').hide();
+    });
+
+    var courseId;
+
+    $("body").delegate( ".EditC", "click", function() {
+        $('#option').hide();
+        $('#first').hide();
+        $('#second').hide();
+        $('#subject').hide();
+        $('#EditCourse').hide();
+        $('#edit_course').hide();
+        $('#UpdateCourse').show();
+
+        courseId = $(this).attr('id');
+        //alert($(this).attr('id'));
+        $.ajax({
+                type        : 'GET',
+                url         : 'course/'+$(this).attr('id'),
+                dataType    : 'json',
+                encode      : true,
+            })
+            .done(function(data) {
+                $('#courseupdate').val(data['result'][0].subject_name);
+            });
+        $('#updatecourse').show();
+    });
+
+    $("#updatecourse").click(function(){
+
+        var jsobj = {
+            'course_name' : $('#courseupdate').val()
+        }
+        $.ajax({
+            url: '/course/'+courseId,
+            type: 'PUT',
+            data: jsobj,
+            dataType    : 'json',
+            async: false,
+            success: function (data) {
+                alert(data['status']);
+                $('#option').show();
+                $('#edit_course').show();
+                $('#first').hide();
+                $('#second').hide();
+                $('#subject').hide();
+                $('#updatecourse').hide();
+                $('#EditCourse').hide();
+                $('#UpdateCourse').hide();
+            }
+        });
+
+    });
 
 
 /*
@@ -283,7 +397,9 @@ $(document).ready(function(){
     //     });
     // });
 */
-    
+    // setInterval(function(){
+    //  window.location.href = "login.php";
+    //  }, 5000);
 
 
 });
