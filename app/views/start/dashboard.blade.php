@@ -16,6 +16,7 @@
     <li> <a style="cursor: pointer;text-decoration: underline" id="add_answer">Answers</a> </li>
     <li> <a style="cursor: pointer;text-decoration: underline" id="edit_course">Edit Course</a> </li>
     <li> <a style="cursor: pointer;text-decoration: underline" id="edit_question">Edit Question</a> </li>
+    <li> <a style="cursor: pointer;text-decoration: underline" id="edit_answer">Edit Answer</a> </li>
 </ul>
 
 
@@ -108,12 +109,11 @@
 
 <div id="EditQuestion"></div>
 
-<div id="UpdateQuestion">
+<div id="UpdateQuestion"></div>
 
-</div>
+<div id="EditAnswer"></div>
 
-
-
+<div id="UpdateAnswer"></div>
 
 <br><br><br>
 <a href=<?php echo $GLOBALS['website_url']."/logout" ?> >Logout</a>

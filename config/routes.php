@@ -49,23 +49,23 @@ class MainRouter
         };
 
 
-
-
         $app->get('/', HomeController::class . ':landing')->setName('root');
         $app->get('/home', HomeController::class . ':home')->setName('home');
         $app->post('/login',LoginController::class.':login_action');
         $app->get('/logout',LoginController::class.':logout');
-
-
         $app->get('/dashboard',HomeController::class.':dashboard')->add($authenticateUser);
 
         // @TODO This routes is related with question
+        $app->get('/question',HomeController::class.':GetAllQuestions')->add($authenticateUser);
         $app->post('/question',HomeController::class.':CreateQuestions')->add($authenticateUser);
         $app->put('/question/{questionid}',HomeController::class.':UpdateQuestionById')->add($authenticateUser);
         $app->get('/question/{subjectid}',HomeController::class.':GetAllQuestionByCourseId')->add($authenticateUser);
 
         // @TODO This routes is related with answer
+        $app->get('/answers/{questionid}',HomeController::class.':GetAnswerByQuestionId')->add($authenticateUser);
         $app->post('/answer',HomeController::class.':AddAnswerToQuestion')->add($authenticateUser);
+        $app->put('/answer/{id}',HomeController::class.':UpdateAnswerById')->add($authenticateUser);
+        $app->delete('/answer/{id}',HomeController::class.':DeleteAnswerById')->add($authenticateUser);
 
 
         // @TODO This routes is related with courses

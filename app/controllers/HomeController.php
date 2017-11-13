@@ -61,6 +61,12 @@ class HomeController extends ApplicationController{
 
     }
 
+    public function GetAllQuestions($request, $response, $args){
+        $pdo = new pdocrudhandler();
+        $result = $pdo->select('questions',array('*'));
+        return json_encode($result);
+    }
+
     public function UpdateQuestionById($request, $response, $args){
         $params = $request->getParams();
         $pdo = new pdocrudhandler();
@@ -109,7 +115,32 @@ class HomeController extends ApplicationController{
         $result = $pdo->update('subject',array('subject_name' => $params['course_name']),'where id = ?',array($id));
         return json_encode($result);
     }
+    
+    
+    public function GetAnswerByQuestionId($request, $response, $args){
 
+        $questionid = $request->getAttribute('questionid');
+        $pdo = new pdocrudhandler();
+        $result = $pdo->select('answer',array('*'),'where questionid = ?',array($questionid));
+        return json_encode($result);
+
+    }
+
+    public function UpdateAnswerById($request, $response, $args){
+
+        $params = $request->getParams();
+        $pdo = new pdocrudhandler();
+        $result = $pdo->update('answer',array('ans' => $params['value']),'where id = ?',array($params['answerId']));
+        return json_encode($result);
+
+    }
+
+    public function DeleteAnswerById($request, $response, $args){
+        $id = $request->getAttribute('id');
+        $pdo = new pdocrudhandler();
+        $result = $pdo->delete('answer','where id = ?',array($id));
+        return json_encode($result);
+    }
 
 
 }

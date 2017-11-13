@@ -382,6 +382,7 @@ $(document).ready(function(){
     });
     
     $('#edit_question').click(function () {
+
         $('#subject').hide();
         $('#question').hide();
         $('#first').hide();
@@ -404,6 +405,7 @@ $(document).ready(function(){
                 }
                 html += '</select>';
                 $('#EditQuestion').html(html);
+                $('#EditQuestion').show();
             }
         });
     });
@@ -427,6 +429,7 @@ $(document).ready(function(){
                 }
                 html += '<br><br><input type="button" value="Back" class="back">';
                 $('#UpdateQuestion').html(html);
+                $('#UpdateQuestion').show();
             }
         });
     });
@@ -452,6 +455,8 @@ $(document).ready(function(){
     });
 
     $("body").delegate( ".back", "click", function(){
+        $('#EditAnswer').hide();
+        $('#UpdateAnswer').hide();
         $('#EditQuestion').hide();
         $('#UpdateQuestion').hide();
         $('#UpdateCourse').hide();
@@ -465,6 +470,94 @@ $(document).ready(function(){
         $('#table').hide();
         $('#edit_question').hide();
         $('#edit_question').show();
+    });
+    
+    $('#edit_answer').click(function () {
+
+        $('#subject').hide();
+        $('#question').hide();
+        $('#first').hide();
+        $('#second').hide();
+        $('#EditCourse').hide();
+        $('#updatecourse').hide();
+        $('#UpdateCourse').hide();
+
+        var html = '';
+        $.ajax({
+            url: '/question',
+            type: 'GET',
+            dataType    : 'json',
+            success: function (data) {
+                html += '<lable>Select Question&nbsp;</lable>';
+                html += '<select name="question" id="questionid">';
+                for(var i=0;i<data['result'].length;i++){
+                    html += "<option value='"+data['result'][i]['id']+"'>"+data['result'][i]['question']+"</option>";
+                }
+                html += '</select>';
+                $('#EditAnswer').html(html);
+                $('#EditAnswer').show();
+            }
+        });
+
+
+    });
+    $("body").delegate( "#questionid", "change", function(){
+        //alert($(this).val());
+        var html = '<br><br>';
+        var questionId = $(this).val();
+        var count = 0;
+        $.ajax({
+            url: '/answers/'+questionId,
+            type: 'GET',
+            dataType    : 'json',
+            success: function (data) {
+                count = data['rowsAffected'];
+                for (var i =0 ; i<count ; i++){
+                    html += '<lable>Edit Answer&nbsp;</lable>';
+                    html += '<input type="text" id="'+data['result'][i]['id']+'" class="value'+data['result'][i]['id']+'" name="ques'+i+'" value="'+data['result'][i]['ans']+'">';
+                    html += '&nbsp;&nbsp;<a style="cursor: pointer;text-decoration: underline;color: #0000E6" class="aupdate" id="'+data['result'][i]['id']+'">Update</a>&nbsp;/&nbsp;';
+                    html += '&nbsp;&nbsp;<a style="cursor: pointer;text-decoration: underline;color: #0000E6" class="adelete" id="'+data['result'][i]['id']+'">Delete</a><br><br>';
+                }
+                html += '<br><br><input type="button" value="Back" class="back">';
+                $('#UpdateAnswer').html(html);
+                $('#UpdateAnswer').show();
+            }
+        });
+    });
+
+    $("body").delegate( ".aupdate", "click", function(){
+
+         var Id = $(this).attr('id');
+
+
+        var jsobj = {
+            'answerId' : Id,
+            'value'   : $(".value"+Id).val()
+        }
+        $.ajax({
+            url: '/answer/'+Id,
+            type: 'PUT',
+            data : jsobj,
+            dataType    : 'json',
+            async: false,
+            success: function (data) {
+                alert("Status : "+data['status']);
+            }
+        });
+
+    });
+
+    $("body").delegate( ".adelete", "click", function(){
+       // alert($(this).attr('id'));
+        var Id = $(this).attr('id');
+        $.ajax({
+            url: '/answer/'+Id,
+            type: 'DELETE',
+            dataType    : 'json',
+            success: function (data) {
+                alert("Status : "+data['status']);
+            }
+        });
     });
 
 

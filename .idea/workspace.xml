@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bf82504-0f87-4b5f-8162-66d70f8202a8" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/HomeController.php" afterPath="$PROJECT_DIR$/app/controllers/HomeController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/start/dashboard.blade.php" afterPath="$PROJECT_DIR$/app/views/start/dashboard.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/74de12431d394181010364d6d4258a9ec52e6867.php" afterPath="$PROJECT_DIR$/cache/74de12431d394181010364d6d4258a9ec52e6867.php" />
@@ -28,13 +29,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="64" column="28" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
+            <state relative-caret-position="211">
+              <caret line="67" column="76" selection-start-line="67" selection-start-column="60" selection-end-line="67" selection-end-column="76" />
               <folding>
                 <element signature="e#96#1156#1#PHP" expanded="false" />
+                <element signature="e#1192#1757#1#PHP" expanded="false" />
                 <element signature="n#auto_logout#0;n#MainRouter#0;n#!!top" expanded="false" />
               </folding>
             </state>
@@ -44,15 +46,9 @@
       <file leaf-file-name="dashboard.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/start/dashboard.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="80" selection-start-line="17" selection-start-column="67" selection-end-line="17" selection-end-column="80" />
-              <folding>
-                <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#2;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#3;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#4;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="381">
+              <caret line="115" column="21" selection-start-line="115" selection-start-column="21" selection-end-line="115" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -60,29 +56,30 @@
       <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/HomeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="67" column="36" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
+            <state relative-caret-position="534">
+              <caret line="141" column="36" selection-start-line="141" selection-start-column="36" selection-end-line="141" selection-end-column="36" />
               <folding>
+                <element signature="n#landing#0;n#HomeController#0;n#!!top" expanded="false" />
                 <element signature="n#home#0;n#HomeController#0;n#!!top" expanded="false" />
                 <element signature="n#dashboard#0;n#HomeController#0;n#!!top" expanded="false" />
                 <element signature="n#CreateCourse#0;n#HomeController#0;n#!!top" expanded="false" />
                 <element signature="n#CreateQuestions#0;n#HomeController#0;n#!!top" expanded="false" />
-                <element signature="n#GetAllQuestionByCourseId#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="n#UpdateQuestionById#0;n#HomeController#0;n#!!top" expanded="false" />
                 <element signature="n#AddAnswerToQuestion#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="n#GetAllCourse#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="n#GetCourseById#0;n#HomeController#0;n#!!top" expanded="false" />
                 <element signature="n#UpdateCourseById#0;n#HomeController#0;n#!!top" expanded="false" />
-                <marker date="1510403106066" expanded="true" signature="2262:2303" placeholder="insert into answer... " />
-                <marker date="1510403106066" expanded="false" signature="2997:3130" placeholder="..." />
-                <marker date="1510403106066" expanded="false" signature="3195:3413" placeholder="..." />
+                <marker date="1510553456590" expanded="true" signature="2464:2505" placeholder="insert into answer... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myscript.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="myscript.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/app/js/myscript.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="466" column="35" selection-start-line="466" selection-start-column="35" selection-end-line="466" selection-end-column="35" />
+            <state relative-caret-position="531">
+              <caret line="555" column="33" selection-start-line="555" selection-start-column="33" selection-end-line="555" selection-end-column="33" />
               <folding>
                 <element signature="e#147#2455#0" expanded="false" />
                 <element signature="e#1341#1911#0" expanded="false" />
@@ -100,11 +97,12 @@
                 <element signature="e#10481#10706#0" expanded="false" />
                 <element signature="e#10783#11446#0" expanded="false" />
                 <element signature="e#11489#12169#0" expanded="false" />
-                <element signature="e#12219#13075#0" expanded="false" />
-                <element signature="e#15164#15738#0" expanded="false" />
-                <marker date="1510403739785" expanded="true" signature="9784:9814" placeholder="..." />
-                <marker date="1510403739785" expanded="true" signature="9884:9914" placeholder="..." />
-                <marker date="1510403739785" expanded="true" signature="13838:13895" placeholder="..." />
+                <element signature="e#18371#18945#0" expanded="false" />
+                <marker date="1510553492867" expanded="true" signature="9784:9814" placeholder="..." />
+                <marker date="1510553492867" expanded="true" signature="9884:9914" placeholder="..." />
+                <marker date="1510553492867" expanded="true" signature="13882:13939" placeholder="..." />
+                <marker date="1510553492867" expanded="true" signature="16973:17030" placeholder="..." />
+                <marker date="1510553492867" expanded="true" signature="17158:17215" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -113,7 +111,7 @@
       <file leaf-file-name="authentication.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/model/authentication.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
+            <state relative-caret-position="374">
               <caret line="116" column="42" selection-start-line="116" selection-start-column="42" selection-end-line="116" selection-end-column="42" />
               <folding>
                 <element signature="n#__construct#0;n#authentication#0;n#!!top" expanded="false" />
@@ -224,8 +222,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -368,6 +364,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -455,12 +453,13 @@
       <workItem from="1510201265531" duration="20043000" />
       <workItem from="1510287493416" duration="353000" />
       <workItem from="1510288271811" duration="21039000" />
-      <workItem from="1510376607513" duration="20630000" />
+      <workItem from="1510376607513" duration="21199000" />
+      <workItem from="1510546515055" duration="6351000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="192591000" />
+    <option name="totallyTimeSpent" value="199511000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1369" height="735" extended-state="0" />
@@ -499,7 +498,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -641,13 +640,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/start/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/filters/password_filters.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-153">
@@ -680,9 +672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding>
-            <element signature="e#7#63#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -698,27 +687,6 @@
         <state relative-caret-position="289">
           <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/authentication.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="116" column="42" selection-start-line="116" selection-start-column="42" selection-end-line="116" selection-end-column="42" />
-          <folding>
-            <element signature="n#__construct#0;n#authentication#0;n#!!top" expanded="false" />
-            <element signature="n#RandomString#0;n#authentication#0;n#!!top" expanded="false" />
-            <element signature="n#logout#0;n#authentication#0;n#!!top" expanded="false" />
-            <element signature="n#token_logout#0;n#authentication#0;n#!!top" expanded="false" />
-            <element signature="n#checkapikey#0;n#authentication#0;n#!!top" expanded="false" />
-            <element signature="n#Session#0;n#authentication#0;n#!!top" expanded="false" />
-            <element signature="n#create_token#0;n#authentication#0;n#!!top" expanded="false" />
-            <element signature="e#4842#4940#0#PHP" expanded="false" />
-            <element signature="n#login#0;n#authentication#0;n#!!top" expanded="false" />
-            <element signature="n#checklogin#0;n#authentication#0;n#!!top" expanded="false" />
-            <element signature="e#7104#7192#0#PHP" expanded="false" />
-            <element signature="e#7197#8029#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -756,54 +724,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.php">
+    <entry file="file://$PROJECT_DIR$/app/views/start/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="64" column="28" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
-          <folding>
-            <element signature="e#96#1156#1#PHP" expanded="false" />
-            <element signature="n#auto_logout#0;n#MainRouter#0;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/HomeController.php">
+    <entry file="file://$PROJECT_DIR$/app/model/authentication.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="67" column="36" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
+        <state relative-caret-position="374">
+          <caret line="116" column="42" selection-start-line="116" selection-start-column="42" selection-end-line="116" selection-end-column="42" />
           <folding>
-            <element signature="n#home#0;n#HomeController#0;n#!!top" expanded="false" />
-            <element signature="n#dashboard#0;n#HomeController#0;n#!!top" expanded="false" />
-            <element signature="n#CreateCourse#0;n#HomeController#0;n#!!top" expanded="false" />
-            <element signature="n#CreateQuestions#0;n#HomeController#0;n#!!top" expanded="false" />
-            <element signature="n#GetAllQuestionByCourseId#0;n#HomeController#0;n#!!top" expanded="false" />
-            <element signature="n#AddAnswerToQuestion#0;n#HomeController#0;n#!!top" expanded="false" />
-            <element signature="n#UpdateCourseById#0;n#HomeController#0;n#!!top" expanded="false" />
-            <marker date="1510403106066" expanded="true" signature="2262:2303" placeholder="insert into answer... " />
-            <marker date="1510403106066" expanded="false" signature="2997:3130" placeholder="..." />
-            <marker date="1510403106066" expanded="false" signature="3195:3413" placeholder="..." />
+            <element signature="n#__construct#0;n#authentication#0;n#!!top" expanded="false" />
+            <element signature="n#RandomString#0;n#authentication#0;n#!!top" expanded="false" />
+            <element signature="n#logout#0;n#authentication#0;n#!!top" expanded="false" />
+            <element signature="n#token_logout#0;n#authentication#0;n#!!top" expanded="false" />
+            <element signature="n#checkapikey#0;n#authentication#0;n#!!top" expanded="false" />
+            <element signature="n#Session#0;n#authentication#0;n#!!top" expanded="false" />
+            <element signature="n#create_token#0;n#authentication#0;n#!!top" expanded="false" />
+            <element signature="e#4842#4940#0#PHP" expanded="false" />
+            <element signature="n#login#0;n#authentication#0;n#!!top" expanded="false" />
+            <element signature="n#checklogin#0;n#authentication#0;n#!!top" expanded="false" />
+            <element signature="e#7104#7192#0#PHP" expanded="false" />
+            <element signature="e#7197#8029#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/start/dashboard.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="80" selection-start-line="17" selection-start-column="67" selection-end-line="17" selection-end-column="80" />
+        <state relative-caret-position="381">
+          <caret line="115" column="21" selection-start-line="115" selection-start-column="21" selection-end-line="115" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="141" column="36" selection-start-line="141" selection-start-column="36" selection-end-line="141" selection-end-column="36" />
           <folding>
-            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#2;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#3;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#4;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#landing#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="n#home#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="n#dashboard#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="n#CreateCourse#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="n#CreateQuestions#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="n#UpdateQuestionById#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="n#AddAnswerToQuestion#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="n#GetAllCourse#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="n#GetCourseById#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="n#UpdateCourseById#0;n#HomeController#0;n#!!top" expanded="false" />
+            <marker date="1510553456590" expanded="true" signature="2464:2505" placeholder="insert into answer... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/app/js/myscript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="466" column="35" selection-start-line="466" selection-start-column="35" selection-end-line="466" selection-end-column="35" />
+        <state relative-caret-position="531">
+          <caret line="555" column="33" selection-start-line="555" selection-start-column="33" selection-end-line="555" selection-end-column="33" />
           <folding>
             <element signature="e#147#2455#0" expanded="false" />
             <element signature="e#1341#1911#0" expanded="false" />
@@ -821,11 +801,24 @@
             <element signature="e#10481#10706#0" expanded="false" />
             <element signature="e#10783#11446#0" expanded="false" />
             <element signature="e#11489#12169#0" expanded="false" />
-            <element signature="e#12219#13075#0" expanded="false" />
-            <element signature="e#15164#15738#0" expanded="false" />
-            <marker date="1510403739785" expanded="true" signature="9784:9814" placeholder="..." />
-            <marker date="1510403739785" expanded="true" signature="9884:9914" placeholder="..." />
-            <marker date="1510403739785" expanded="true" signature="13838:13895" placeholder="..." />
+            <element signature="e#18371#18945#0" expanded="false" />
+            <marker date="1510553492867" expanded="true" signature="9784:9814" placeholder="..." />
+            <marker date="1510553492867" expanded="true" signature="9884:9914" placeholder="..." />
+            <marker date="1510553492867" expanded="true" signature="13882:13939" placeholder="..." />
+            <marker date="1510553492867" expanded="true" signature="16973:17030" placeholder="..." />
+            <marker date="1510553492867" expanded="true" signature="17158:17215" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="67" column="76" selection-start-line="67" selection-start-column="60" selection-end-line="67" selection-end-column="76" />
+          <folding>
+            <element signature="e#96#1156#1#PHP" expanded="false" />
+            <element signature="e#1192#1757#1#PHP" expanded="false" />
+            <element signature="n#auto_logout#0;n#MainRouter#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
