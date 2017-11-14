@@ -304,9 +304,9 @@ $(document).ready(function(){
                     html += '<tbody>';
                     for (var i = 0 ; i<data['result'].length ; i++){
                         html += '<tr>';
-                        html += '<td> <img src='+data["result"][i].picPath+'  height="42" width="42"> </td>';
+                        html += '<td> <img id="'+data['result'][i].id+'" class="change_img" src='+data["result"][i].picPath+'  height="42" width="42"> </td>';
                         html += '<td>'+data['result'][i].subject_name+'</td>';
-                        html += '<td><a style="cursor: pointer;color: #0000E6" class="EditC" id="'+data['result'][i].id+'">Edit</a>&nbsp;<a style="cursor: pointer;color: #0000E6" class="DeleteC" id="'+data['result'][i].id+'">Delete</a></td>';
+                        html += '<td><a style="cursor: pointer;color: #0000E6" class="EditC" id="'+data['result'][i].id+'" >Edit</a>&nbsp;<a style="cursor: pointer;color: #0000E6" class="DeleteC" id="'+data['result'][i].id+'">Delete</a></td>';
                         html += '</tr>';
                     }
                     html += '</tbody>';
@@ -574,6 +574,86 @@ $(document).ready(function(){
         });
 
     });
+
+
+
+
+
+
+    $("body").delegate( ".change_img", "click", function(){
+        //alert($(this).attr('id'));
+
+        var form = $(document.createElement('form'));
+        $(form).attr("id", "newImage");
+
+        var input = $("<input>").attr("type", "hidden").attr("name", "id").val($(this).attr('id'));
+
+        $(form).append(input);
+
+        var input = $("<input>").attr("type", "file").attr("id", "file").attr("name", "image");
+
+        $(form).append(input);
+
+        form.appendTo( document.body );
+
+        $('#file').click();
+
+        $("input:file").change(function (){
+            $("#newImage").submit();
+        });
+
+        $('#newImage').on('submit',(function(e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            $.ajax({
+                type:'POST',
+                url: '/course/changeImage',
+                data:formData,
+                dataType    : 'json',
+                cache:false,
+                contentType: false,
+                processData: false,
+                success:function(data){
+                    $( "#newImage" ).remove();
+                    var html = '';
+                    $('#EditCourse').html(html);
+                    console.log("success");
+                    console.log(data);
+                    if (data['rowsAffected'] >= 1 && data['status'] ==  'success'){
+                        html += '<table>';
+                        html += '<thead>';
+                        html += '<th></th>';
+                        html += '<th>Course title</th>';
+                        html += '<th>Action</th>';
+                        html += '</thead>';
+                        html += '<tbody>';
+                        for (var i = 0 ; i<data['result'].length ; i++){
+                            html += '<tr>';
+                            html += '<td> <img id="'+data['result'][i].id+'" class="change_img" src='+data["result"][i].picPath+'  height="42" width="42"> </td>';
+                            html += '<td>'+data['result'][i].subject_name+'</td>';
+                            html += '<td><a style="cursor: pointer;color: #0000E6" class="EditC" id="'+data['result'][i].id+'" >Edit</a>&nbsp;<a style="cursor: pointer;color: #0000E6" class="DeleteC" id="'+data['result'][i].id+'">Delete</a></td>';
+                            html += '</tr>';
+                        }
+                        html += '</tbody>';
+                        html += '</table>';
+                        html += '<button type="button" class="ques_cancel">Cancel</button>';
+                        $('#EditCourse').html(html);
+                        $('#EditCourse').show();
+                    }else{
+                        alert('Un Authorized user');
+                    }
+                },
+                error: function(data){
+                    console.log("error");
+                    console.log(data);
+                }
+            });
+
+        }));
+
+
+    });
+
 
 
 /*

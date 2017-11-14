@@ -71,6 +71,7 @@ class MainRouter
 
 
         // @TODO This routes is related with courses
+        $app->post('/course/changeImage',HomeController::class.':ChangeImage')->add($authenticateUser);
         $app->get('/course',HomeController::class.':GetAllCourse')->add($authenticateUser);
         $app->post('/course',HomeController::class.':CreateCourse')->add($authenticateUser);
         $app->get('/course/{id}',HomeController::class.':GetCourseById')->add($authenticateUser);

@@ -42,6 +42,13 @@ class HomeController extends ApplicationController{
 
     }
 
+    public function ChangeImage($request, $response, $args){
+
+        $sub = new subject();
+        return json_encode($sub->ChangeSubjectIcon($_FILES,$request->getParams()));
+
+    }
+
     public function CreateQuestions($request, $response, $args){
 
         $params = $request->getParams();

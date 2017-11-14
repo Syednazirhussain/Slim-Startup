@@ -22,7 +22,8 @@ class subject extends pdocrudhandler{
                     if ($tmpFilePath != ""){
                         $newFilePath = "../Uploads/Icons/".$ID."_".$files['image']['name'];
                         if(move_uploaded_file($tmpFilePath,$newFilePath)) {
-                            $update = $this->update('subject',array('picPath'  => $newFilePath),'where id = ? ',array($ID));
+                            $path = '../../../'.$newFilePath;
+                            $update = $this->update('subject',array('picPath'  => $path),'where id = ? ',array($ID));
                             if ($update['status'] == 'success' && $update['rowsAffected'] == 1){
                                 return "file uplaoded successfull";
                             }
@@ -34,6 +35,33 @@ class subject extends pdocrudhandler{
         }else{
             $result = $this->insert('subject',array('subject_name' => $params['subjectname']));
             return $result;
+        }
+    }
+
+    public function ChangeSubjectIcon($files,$params){
+
+        $result = $this->select('subject',array('*'),'where id = ?',array($params['id']));
+//        return ['status' => $result['result'][0]->picPath];
+
+        $arr = str_split($result['result'][0]->picPath, 9);
+
+        $filesPath = '';
+
+        for ($i = 1 ; $i < count($arr) ; $i++){
+            $filesPath .= $arr[$i];
+        }
+        unlink($filesPath);
+
+        $tmpFilePath = $files['image']['tmp_name'];
+        if ($tmpFilePath != ""){
+            $newFilePath = "../Uploads/Icons/".$params['id']."_".$files['image']['name'];
+            if(move_uploaded_file($tmpFilePath,$newFilePath)) {
+                $path = '../../../'.$newFilePath;
+                $update = $this->update('subject',array('picPath'  => $path),'where id = ? ',array($params['id']));
+                if ($update['status'] == 'success' && $update['rowsAffected'] == 1){
+                    return $this->select('subject',array('*'));
+                }
+            }
         }
     }
 
