@@ -304,7 +304,7 @@ $(document).ready(function(){
                     html += '<tbody>';
                     for (var i = 0 ; i<data['result'].length ; i++){
                         html += '<tr>';
-                        html += '<td> <img src=""  height="42" width="42"> </td>';
+                        html += '<td> <img src='+data["result"][i].picPath+'  height="42" width="42"> </td>';
                         html += '<td>'+data['result'][i].subject_name+'</td>';
                         html += '<td><a style="cursor: pointer;color: #0000E6" class="EditC" id="'+data['result'][i].id+'">Edit</a>&nbsp;<a style="cursor: pointer;color: #0000E6" class="DeleteC" id="'+data['result'][i].id+'">Delete</a></td>';
                         html += '</tr>';
@@ -501,6 +501,7 @@ $(document).ready(function(){
 
 
     });
+    
     $("body").delegate( "#questionid", "change", function(){
         //alert($(this).val());
         var html = '<br><br>';
@@ -558,6 +559,20 @@ $(document).ready(function(){
                 alert("Status : "+data['status']);
             }
         });
+    });
+
+    $('#send_mail').click(function () {
+
+
+        $.ajax({
+            url : '/SendMail',
+            type : 'GET',
+            dataType : 'json',
+            success : function (data) {
+                alert(data['massage']);
+            }
+        });
+
     });
 
 

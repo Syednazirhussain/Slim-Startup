@@ -115,8 +115,7 @@ class HomeController extends ApplicationController{
         $result = $pdo->update('subject',array('subject_name' => $params['course_name']),'where id = ?',array($id));
         return json_encode($result);
     }
-    
-    
+
     public function GetAnswerByQuestionId($request, $response, $args){
 
         $questionid = $request->getAttribute('questionid');
@@ -140,6 +139,19 @@ class HomeController extends ApplicationController{
         $pdo = new pdocrudhandler();
         $result = $pdo->delete('answer','where id = ?',array($id));
         return json_encode($result);
+    }
+
+    public function SendMail(){
+
+        $email = new Email();
+        $result = $email->Send(
+            'syednazir13@gmail.com',
+            'nadir@supertech.com',
+            'syednazir13@gmail.com',
+            'Pakistan Zindabad'
+        );
+        return json_encode(['massage' => $result]);
+
     }
 
 

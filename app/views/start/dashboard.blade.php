@@ -17,6 +17,7 @@
     <li> <a style="cursor: pointer;text-decoration: underline" id="edit_course">Edit Course</a> </li>
     <li> <a style="cursor: pointer;text-decoration: underline" id="edit_question">Edit Question</a> </li>
     <li> <a style="cursor: pointer;text-decoration: underline" id="edit_answer">Edit Answer</a> </li>
+    <li> <a style="cursor: pointer;text-decoration: underline" id="send_mail">Send Mail</a> </li>
 </ul>
 
 

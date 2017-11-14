@@ -949,6 +949,79 @@ class Email
 
 	}
 
+	function Send($to,$from,$replyto,$message,$is_gmail = true){
+
+		$this->headers = "";
+		$this->headers .= "MIME-Version: 1.0\r\n";
+		$this->headers .= "Content-type: text/html; charset=UTF-8\r\n";
+		$this->headers .= "Content-Transfer-Encoding: quoted -printable\r\n";
+		$this->headers .= "From: $from \r\n";
+        $this->headers .= "Cc: syednazir13@gmail.com \r\n";
+        $this->headers .= "Reply-To: ".$replyto. "\r\n";
+		$this->dated = date("D, d M Y H:i:s", time());
+		$this->headers .= "Date: ".$this->dated ."\r\n";
+
+		$header = $this->headers;
+
+		$mail = new PHPMailer();
+		
+		$mail->IsSMTP();
+		
+		$mail->SMTPAuth = true;
+
+		$mail->SMTPOptions = array(
+			'ssl' => array(
+				'verify_peer' => false,
+				'verify_peer_name' => false,
+				'allow_self_signed' => true
+			)
+		);
+
+		if($is_gmail) {
+			$mail->SMTPSecure = 'ssl';
+			$mail->Host = 'smtp.gmail.com';
+			$mail->Port = 465;
+			$mail->Username   = "warishai732@gmail.com";  // username
+			$mail->Password   = "warishai732@@";
+
+		} else
+		{
+			$mail->Host = 'smtp.mail.google.com';
+			$mail->Username   = "syednazir13@gmail.com";
+			$mail->Password   = "pakistan123!@#";
+		}
+
+		$mail->IsHTML(true);
+
+		$mail->From = "nadir@supertech.com";
+
+		$mail->FromName = "Syed Nazir Hussain";
+
+		$mail->AddReplyTo("syednazir13@gmail.com", "Jet Brain");
+
+
+		$mail->AddCC('syednazir13@gmail.com', 'Jet Brain');
+
+		$mail->Subject = 'Test';
+
+		$message .= "\n\n";
+		$message = str_replace("\n","<br>",$message);
+
+		$mail->Body = $message;
+
+		$mail->AddAddress($to);
+
+		$mail->header = $header;
+
+		if(!$mail->Send()) {
+			$error = 'Mail error: '.$mail->ErrorInfo;
+			return $error ;
+		} else {
+			return json_encode(['message' => 'Mail Sent']);
+		}
+
+	}
+
     function smtpmailer($is_gmail = true)
     {
 		//    	$to="syednazir13@gmail.com";
@@ -960,6 +1033,11 @@ class Email
     	$to = $this->CEmail;
 		$FromFrom = $this->from;
 		$subject = $this->subject;
+
+
+
+
+		// 'DIDx.net <support@virtualphoneline.com>'
 
     	// $error;
     	// $to = $this->CEmail;
@@ -989,8 +1067,7 @@ class Email
             'verify_peer' => false,
             'verify_peer_name' => false,
             'allow_self_signed' => true
-            )
-            );
+            ));
         if($is_gmail) {
             $mail->SMTPSecure = 'ssl';
             $mail->Host = 'smtp.gmail.com';
@@ -1034,9 +1111,9 @@ class Email
 		);
 
 		$this->message = strtr($this->message, $vars);
-		//echo $this->message;die();
+		echo $this->message;die();
 		
-        $this->message .= "\n\n DIDX Email Manager ID: $this->id";
+        $this->message .= "\n\n DIDX Email Manager ID";
         $this->message = str_replace("\n","<br>",$this->message);
         $this->message  = str_replace("TotalTestsLast7",$this->TotalTestsLast7,$this->message);
 
@@ -1049,8 +1126,13 @@ class Email
         //$this->message  = str_replace("TESTXTEST",$this->FailedSinceHoursVal,$this->message);
 
         $mail->AddCC('care@didx.net', 'DIDx.net');
-        $mail->Subject = $this->subject;
-        $mail->Body = $this->message;
+
+		$mail->Subject = $this->subject;
+
+		$mail->Subject = 'Test';
+
+
+		$mail->Body = $this->message;
         $mail->AddAddress($to);
         $mail->header=$header;
         if(!$mail->Send()) {

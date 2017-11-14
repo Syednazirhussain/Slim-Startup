@@ -71,7 +71,20 @@ $container['view'] = function ($container) {
 // 404 page added
 $container['notFoundHandler'] = function ($c) {
     return function ($request, $response) use ($c) {
-        return $c['view']->render($response, 'error_pages/404')->withStatus(404);
+        $link = $request->getUri();
+        $link_array = explode('/',$link);
+        $page = end($link_array);
+        $url = str_replace("http://test","",$link);
+        if (strcmp($url,"/Uploads/Icons/{$page}") == 0){
+            $response->withHeader("Content-type", 'image/jpg');
+            $body = $response->getBody();
+            $image = file_get_contents("..".$url);
+            $body->write($image);
+            $response->write($image);
+            return $response->withHeader('Content-Type', FILEINFO_MIME_TYPE);
+        }else{
+            return $c['view']->render($response, 'error_pages/404')->withStatus(404);
+        }
     };
 };
 

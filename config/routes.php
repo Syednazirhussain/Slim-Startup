@@ -55,6 +55,8 @@ class MainRouter
         $app->get('/logout',LoginController::class.':logout');
         $app->get('/dashboard',HomeController::class.':dashboard')->add($authenticateUser);
 
+        $app->get('/SendMail',HomeController::class.':SendMail');
+
         // @TODO This routes is related with question
         $app->get('/question',HomeController::class.':GetAllQuestions')->add($authenticateUser);
         $app->post('/question',HomeController::class.':CreateQuestions')->add($authenticateUser);
